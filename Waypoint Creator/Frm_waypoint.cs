@@ -12,8 +12,6 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-
-
 namespace Frm_waypoint
 {
     public partial class frm_Waypoint : Form
@@ -342,6 +340,15 @@ namespace Frm_waypoint
                             sniff.o = "0";
                         }
 
+                        /*if (lines[i].Contains("Points: X:"))
+                        {
+                            string[] packetline = lines[i].Split(new char[] { ' ' });
+                            sniff.x = packetline[5];
+                            sniff.y = packetline[7];
+                            sniff.z = packetline[9];
+                            sniff.o = "0";
+                        }*/
+
                         if (lines[i].Contains("Points: X:"))
                         {
                             string[] packetline = lines[i].Split(new char[] { ' ' });
@@ -349,6 +356,17 @@ namespace Frm_waypoint
                             sniff.y = packetline[7];
                             sniff.z = packetline[9];
                             sniff.o = "0";
+
+                            DataRow dr = dt.NewRow();
+                            dr[0] = sniff.entry;
+                            dr[1] = sniff.guid;
+                            dr[2] = sniff.x;
+                            dr[3] = sniff.y;
+                            dr[4] = sniff.z;
+                            dr[5] = sniff.o;
+                            dr[6] = sniff.time;
+                            dt.Rows.Add(dr);
+                            sniff.entry = "";
                         }
 
                         if (lines[i].Contains("FaceDirection:"))
@@ -365,7 +383,7 @@ namespace Frm_waypoint
                             sniff.z = packetline[9];
                             sniff.o = "0";
 
-                            /*if (lines[i].Contains("[0]") || lines[i].Contains("[1]")) { }
+                            if (lines[i].Contains("[0]") || lines[i].Contains("[1]")) { }
                             else
                             {
                                 DataRow dr = dt.NewRow();
@@ -378,9 +396,8 @@ namespace Frm_waypoint
                                 dr[6] = sniff.time;
                                 dt.Rows.Add(dr);
                                 sniff.entry = "";
-                            }*/
+                            }
                         }
-
                     } while (lines[i] != "");
 
                     if (sniff.entry != "")
@@ -419,8 +436,8 @@ namespace Frm_waypoint
                             }
                         }
 
-                        /*
-                        if (lines[i].Contains("Transport/0"))
+                        
+                        /*if (lines[i].Contains("Transport/0"))
                         {
                             if (lines[i].Contains("Transport Position: X:"))
                             {
