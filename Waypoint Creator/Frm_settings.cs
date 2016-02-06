@@ -112,6 +112,11 @@ namespace Frm_waypoint
             else
                 chkBoxObject.CheckState = CheckState.Unchecked;
 
+            if (Properties.Settings.Default.Vehicle == true)
+                chkBoxVehicle.CheckState = CheckState.Checked;
+            else
+                chkBoxVehicle.CheckState = CheckState.Unchecked;
+
             picBoxPointColour.BackColor = Properties.Settings.Default.PointColour;
             picBoxLineColour.BackColor = Properties.Settings.Default.LineColour;
             picBoxBackColour.BackColor = Properties.Settings.Default.BackColour;
@@ -144,6 +149,11 @@ namespace Frm_waypoint
                 Properties.Settings.Default.ObjectUpdate = true;
             else
                 Properties.Settings.Default.ObjectUpdate = false;
+
+            if (chkBoxVehicle.CheckState == CheckState.Checked)
+                Properties.Settings.Default.Vehicle = true;
+            else
+                Properties.Settings.Default.Vehicle = false;
 
             Properties.Settings.Default.PointColour = picBoxPointColour.BackColor;
             Properties.Settings.Default.LineColour = picBoxLineColour.BackColor;

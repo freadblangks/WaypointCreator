@@ -49,6 +49,7 @@
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.btnDefault = new System.Windows.Forms.Button();
             this.chkBoxObject = new System.Windows.Forms.CheckBox();
+            this.chkBoxVehicle = new System.Windows.Forms.CheckBox();
             this.groupSQL.SuspendLayout();
             this.groupGraph.SuspendLayout();
             this.groupColours.SuspendLayout();
@@ -237,7 +238,7 @@
             // 
             // btnDefault
             // 
-            this.btnDefault.Location = new System.Drawing.Point(12, 189);
+            this.btnDefault.Location = new System.Drawing.Point(18, 216);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.Size = new System.Drawing.Size(117, 23);
             this.btnDefault.TabIndex = 10;
@@ -255,12 +256,23 @@
             this.chkBoxObject.Text = "Get spline waypoints from Object Update";
             this.chkBoxObject.UseVisualStyleBackColor = true;
             // 
+            // chkBoxVehicle
+            // 
+            this.chkBoxVehicle.AutoSize = true;
+            this.chkBoxVehicle.Location = new System.Drawing.Point(18, 190);
+            this.chkBoxVehicle.Name = "chkBoxVehicle";
+            this.chkBoxVehicle.Size = new System.Drawing.Size(201, 17);
+            this.chkBoxVehicle.TabIndex = 12;
+            this.chkBoxVehicle.Text = "Get spline waypoints for Vehicle only!";
+            this.chkBoxVehicle.UseVisualStyleBackColor = true;
+            // 
             // frm_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 226);
+            this.ClientSize = new System.Drawing.Size(336, 254);
             this.ControlBox = false;
+            this.Controls.Add(this.chkBoxVehicle);
             this.Controls.Add(this.chkBoxObject);
             this.Controls.Add(this.groupSQL);
             this.Controls.Add(this.groupGraph);
@@ -314,5 +326,6 @@
         private System.Windows.Forms.PictureBox picBoxBackColour;
         private System.Windows.Forms.Button btnDefault;
         private System.Windows.Forms.CheckBox chkBoxObject;
+        private System.Windows.Forms.CheckBox chkBoxVehicle;
     }
 }

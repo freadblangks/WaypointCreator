@@ -202,5 +202,20 @@ namespace Frm_waypoint.Properties {
                 this["ObjectUpdate"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Vehicle
+        {
+            get
+            {
+                return ((bool)(this["Vehicle"]));
+            }
+            set
+            {
+                this["Vehicle"] = value;
+            }
+        }
     }
 }
