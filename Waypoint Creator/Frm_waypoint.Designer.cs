@@ -96,7 +96,7 @@
             this.tabOutput.Location = new System.Drawing.Point(4, 22);
             this.tabOutput.Name = "tabOutput";
             this.tabOutput.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOutput.Size = new System.Drawing.Size(1312, 672);
+            this.tabOutput.Size = new System.Drawing.Size(1416, 672);
             this.tabOutput.TabIndex = 1;
             this.tabOutput.Text = "SQL Output";
             this.tabOutput.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
             this.txtOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOutput.Size = new System.Drawing.Size(1306, 641);
+            this.txtOutput.Size = new System.Drawing.Size(1410, 641);
             this.txtOutput.TabIndex = 0;
             this.txtOutput.WordWrap = false;
             // 
@@ -119,7 +119,7 @@
             this.toolStripButtonSave});
             this.toolStripSQL.Location = new System.Drawing.Point(3, 3);
             this.toolStripSQL.Name = "toolStripSQL";
-            this.toolStripSQL.Size = new System.Drawing.Size(1306, 25);
+            this.toolStripSQL.Size = new System.Drawing.Size(1410, 25);
             this.toolStripSQL.TabIndex = 1;
             this.toolStripSQL.Text = "toolStrip1";
             // 
@@ -144,7 +144,7 @@
             this.tabEditor.Location = new System.Drawing.Point(4, 22);
             this.tabEditor.Name = "tabEditor";
             this.tabEditor.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEditor.Size = new System.Drawing.Size(1312, 672);
+            this.tabEditor.Size = new System.Drawing.Size(1416, 672);
             this.tabEditor.TabIndex = 0;
             this.tabEditor.Text = "Waypoint Editor";
             this.tabEditor.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@
             this.listBox.FormattingEnabled = true;
             this.listBox.Location = new System.Drawing.Point(704, 28);
             this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(140, 641);
+            this.listBox.Size = new System.Drawing.Size(239, 641);
             this.listBox.TabIndex = 24;
             this.listBox.SelectedIndexChanged += new System.EventHandler(this.listBox_SelectedIndexChanged);
             // 
@@ -283,7 +283,7 @@
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridWaypoint.DefaultCellStyle = dataGridViewCellStyle5;
             this.gridWaypoint.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.gridWaypoint.Location = new System.Drawing.Point(850, 28);
+            this.gridWaypoint.Location = new System.Drawing.Point(949, 31);
             this.gridWaypoint.Name = "gridWaypoint";
             this.gridWaypoint.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -414,7 +414,7 @@
             this.toolStripButtonLoadSniff});
             this.toolStripEdit.Location = new System.Drawing.Point(3, 3);
             this.toolStripEdit.Name = "toolStripEdit";
-            this.toolStripEdit.Size = new System.Drawing.Size(1306, 25);
+            this.toolStripEdit.Size = new System.Drawing.Size(1410, 25);
             this.toolStripEdit.TabIndex = 23;
             this.toolStripEdit.Text = "toolStrip1";
             // 
@@ -483,7 +483,7 @@
             this.tab_Waypoint.Location = new System.Drawing.Point(0, 0);
             this.tab_Waypoint.Name = "tab_Waypoint";
             this.tab_Waypoint.SelectedIndex = 0;
-            this.tab_Waypoint.Size = new System.Drawing.Size(1320, 698);
+            this.tab_Waypoint.Size = new System.Drawing.Size(1424, 698);
             this.tab_Waypoint.TabIndex = 20;
             // 
             // statusStrip
@@ -492,7 +492,7 @@
             this.toolStripStatusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 698);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1320, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1424, 22);
             this.statusStrip.TabIndex = 23;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -506,7 +506,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1320, 720);
+            this.ClientSize = new System.Drawing.Size(1424, 720);
             this.Controls.Add(this.tab_Waypoint);
             this.Controls.Add(this.statusStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

@@ -30,10 +30,10 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="PointColour" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Blue</Value>
+      <Value Profile="(Default)">OrangeRed</Value>
     </Setting>
     <Setting Name="LineColour" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Cyan</Value>
+      <Value Profile="(Default)">GreenYellow</Value>
     </Setting>
     <Setting Name="BackColour" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">White</Value>
@@ -45,6 +45,9 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ObjectUpdate" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Vehicle" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
