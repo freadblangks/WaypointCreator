@@ -8,3 +8,10 @@
 *.Cache
 Debug/
 Release/
+/.vs/Waypoint Creator/v14/*.suo
+/.vs/WaypointCreator/v14/*.suo
+/WaypointCreator/*.user
+Minimap
+packages
+/*.suo
+/Minimap.zip

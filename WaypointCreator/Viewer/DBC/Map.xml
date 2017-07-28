@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ArrayOfMap>
+	<Map>
+		<Id>0</Id>
+		<Name>Azeroth</Name>
+		<LongName>Eastern Kingdoms</LongName>
+	</Map>
+	<Map>
+		<Id>1</Id>
+		<Name>Kalimdor</Name>
+		<LongName>Kalimdor</LongName>
+	</Map>
+	<Map>
+		<Id>13</Id>
+		<Name>test</Name>
+		<LongName>Testing</LongName>
+	</Map>
+	<Map>
+		<Id>25</Id>
+		<Name>ScottTest</Name>
+		<LongName>Scott Test</LongName>
+	</Map>
+	<Map>
+		<Id>30</Id>
+		<Name>PVPZone01</Name>
+		<LongName>Alterac Valley</LongName>
+	</Map>
+	<Map>
+		<Id>33</Id>
+		<Name>Shadowfang</Name>
+		<LongName>Shadowfang Keep</LongName>
+	</Map>
+	<Map>
+		<Id>34</Id>
+		<Name>StormwindJail</Name>
+		<LongName>Stormwind Stockade</LongName>
+	</Map>
+	<Map>
+		<Id>35</Id>
+		<Name>StormwindPrison</Name>
+		<LongName>&lt;unused&gt;StormwindPrison</LongName>
+	</Map>
+	<Map>
+		<Id>36</Id>
+		<Name>DeadminesInstance</Name>
+		<LongName>Deadmines</LongName>
+	</Map>
+	<Map>
+		<Id>37</Id>
+		<Name>PVPZone02</Name>
+		<LongName>Azshara Crater</LongName>
+	</Map>
+	<Map>
+		<Id>42</Id>
+		<Name>Collin</Name>
+		<LongName>Collin''s Test</LongName>
+	</Map>
+	<Map>
+		<Id>43</Id>
+		<Name>WailingCaverns</Name>
+		<LongName>Wailing Caverns</LongName>
+	</Map>
+	<Map>
+		<Id>44</Id>
+		<Name>Monastery</Name>
+		<LongName>&lt;unused&gt; Monastery</LongName>
+	</Map>
+	<Map>
+		<Id>47</Id>
+		<Name>RazorfenKraulInstance</Name>
+		<LongName>Razorfen Kraul</LongName>
+	</Map>
+	<Map>
+		<Id>48</Id>
+		<Name>Blackfathom</Name>
+		<LongName>Blackfathom Deeps</LongName>
+	</Map>
+	<Map>
+		<Id>70</Id>
+		<Name>Uldaman</Name>
+		<LongName>Uldaman</LongName>
+	</Map>
+	<Map>
+		<Id>90</Id>
+		<Name>GnomeragonInstance</Name>
+		<LongName>Gnomeregan</LongName>
+	</Map>
+	<Map>
+		<Id>109</Id>
+		<Name>SunkenTemple</Name>
+		<LongName>Sunken Temple</LongName>
+	</Map>
+	<Map>
+		<Id>129</Id>
+		<Name>RazorfenDowns</Name>
+		<LongName>Razorfen Downs</LongName>
+	</Map>
+	<Map>
+		<Id>169</Id>
+		<Name>EmeraldDream</Name>
+		<LongName>Emerald Dream</LongName>
+	</Map>
+	<Map>
+		<Id>189</Id>
+		<Name>MonasteryInstances</Name>
+		<LongName>Scarlet Monastery</LongName>
+	</Map>
+	<Map>
+		<Id>209</Id>
+		<Name>TanarisInstance</Name>
+		<LongName>Zul''Farrak</LongName>
+	</Map>
+	<Map>
+		<Id>229</Id>
+		<Name>BlackRockSpire</Name>
+		<LongName>Blackrock Spire</LongName>
+	</Map>
+	<Map>
+		<Id>230</Id>
+		<Name>BlackrockDepths</Name>
+		<LongName>Blackrock Depths</LongName>
+	</Map>
+	<Map>
+		<Id>249</Id>
+		<Name>OnyxiaLairInstance</Name>
+		<LongName>Onyxia''s Lair</LongName>
+	</Map>
+	<Map>
+		<Id>269</Id>
+		<Name>CavernsOfTime</Name>
+		<LongName>Opening of the Dark Portal</LongName>
+	</Map>
+	<Map>
+		<Id>289</Id>
+		<Name>SchoolofNecromancy</Name>
+		<LongName>Scholomance</LongName>
+	</Map>
+	<Map>
+		<Id>309</Id>
+		<Name>Zul''gurub</Name>
+		<LongName>Zul''Gurub</LongName>
+	</Map>
+	<Map>
+		<Id>329</Id>
+		<Name>Stratholme</Name>
+		<LongName>Stratholme</LongName>
+	</Map>
+	<Map>
+		<Id>349</Id>
+		<Name>Mauradon</Name>
+		<LongName>Maraudon</LongName>
+	</Map>
+	<Map>
+		<Id>369</Id>
+		<Name>DeeprunTram</Name>
+		<LongName>Deeprun Tram</LongName>
+	</Map>
+	<Map>
+		<Id>389</Id>
+		<Name>OrgrimmarInstance</Name>
+		<LongName>Ragefire Chasm</LongName>
+	</Map>
+	<Map>
+		<Id>409</Id>
+		<Name>MoltenCore</Name>
+		<LongName>Molten Core</LongName>
+	</Map>
+	<Map>
+		<Id>429</Id>
+		<Name>DireMaul</Name>
+		<LongName>Dire Maul</LongName>
+	</Map>
+	<Map>
+		<Id>449</Id>
+		<Name>AlliancePVPBarracks</Name>
+		<LongName>Alliance PVP Barracks</LongName>
+	</Map>
+	<Map>
+		<Id>450</Id>
+		<Name>HordePVPBarracks</Name>
+		<LongName>Horde PVP Barracks</LongName>
+	</Map>
+	<Map>
+		<Id>451</Id>
+		<Name>development</Name>
+		<LongName>Development Land</LongName>
+	</Map>
+	<Map>
+		<Id>469</Id>
+		<Name>BlackwingLair</Name>
+		<LongName>Blackwing Lair</LongName>
+	</Map>
+	<Map>
+		<Id>489</Id>
+		<Name>PVPZone03</Name>
+		<LongName>Warsong Gulch</LongName>
+	</Map>
+	<Map>
+		<Id>509</Id>
+		<Name>AhnQiraj</Name>
+		<LongName>Ruins of Ahn''Qiraj</LongName>
+	</Map>
+	<Map>
+		<Id>529</Id>
+		<Name>PVPZone04</Name>
+		<LongName>Arathi Basin</LongName>
+	</Map>
+	<Map>
+		<Id>530</Id>
+		<Name>Expansion01</Name>
+		<LongName>Outland</LongName>
+	</Map>
+	<Map>
+		<Id>531</Id>
+		<Name>AhnQirajTemple</Name>
+		<LongName>Ahn''Qiraj Temple</LongName>
+	</Map>
+	<Map>
+		<Id>532</Id>
+		<Name>Karazahn</Name>
+		<LongName>Karazhan</LongName>
+	</Map>
+	<Map>
+		<Id>533</Id>
+		<Name>Stratholme Raid</Name>
+		<LongName>Naxxramas</LongName>
+	</Map>
+	<Map>
+		<Id>534</Id>
+		<Name>HyjalPast</Name>
+		<LongName>The Battle for Mount Hyjal</LongName>
+	</Map>
+	<Map>
+		<Id>540</Id>
+		<Name>HellfireMilitary</Name>
+		<LongName>Hellfire Citadel: The Shattered Halls</LongName>
+	</Map>
+	<Map>
+		<Id>542</Id>
+		<Name>HellfireDemon</Name>
+		<LongName>Hellfire Citadel: The Blood Furnace</LongName>
+	</Map>
+	<Map>
+		<Id>543</Id>
+		<Name>HellfireRampart</Name>
+		<LongName>Hellfire Citadel: Ramparts</LongName>
+	</Map>
+	<Map>
+		<Id>544</Id>
+		<Name>HellfireRaid</Name>
+		<LongName>Magtheridon''s Lair</LongName>
+	</Map>
+	<Map>
+		<Id>545</Id>
+		<Name>CoilfangPumping</Name>
+		<LongName>Coilfang: The Steamvault</LongName>
+	</Map>
+	<Map>
+		<Id>546</Id>
+		<Name>CoilfangMarsh</Name>
+		<LongName>Coilfang: The Underbog</LongName>
+	</Map>
+	<Map>
+		<Id>547</Id>
+		<Name>CoilfangDraenei</Name>
+		<LongName>Coilfang: The Slave Pens</LongName>
+	</Map>
+	<Map>
+		<Id>548</Id>
+		<Name>CoilfangRaid</Name>
+		<LongName>Coilfang: Serpentshrine Cavern</LongName>
+	</Map>
+	<Map>
+		<Id>550</Id>
+		<Name>TempestKeepRaid</Name>
+		<LongName>Tempest Keep</LongName>
+	</Map>
+	<Map>
+		<Id>552</Id>
+		<Name>TempestKeepArcane</Name>
+		<LongName>Tempest Keep: The Arcatraz</LongName>
+	</Map>
+	<Map>
+		<Id>553</Id>
+		<Name>TempestKeepAtrium</Name>
+		<LongName>Tempest Keep: The Botanica</LongName>
+	</Map>
+	<Map>
+		<Id>554</Id>
+		<Name>TempestKeepFactory</Name>
+		<LongName>Tempest Keep: The Mechanar</LongName>
+	</Map>
+	<Map>
+		<Id>555</Id>
+		<Name>AuchindounShadow</Name>
+		<LongName>Auchindoun: Shadow Labyrinth</LongName>
+	</Map>
+	<Map>
+		<Id>556</Id>
+		<Name>AuchindounDemon</Name>
+		<LongName>Auchindoun: Sethekk Halls</LongName>
+	</Map>
+	<Map>
+		<Id>557</Id>
+		<Name>AuchindounEthereal</Name>
+		<LongName>Auchindoun: Mana-Tombs</LongName>
+	</Map>
+	<Map>
+		<Id>558</Id>
+		<Name>AuchindounDraenei</Name>
+		<LongName>Auchindoun: Auchenai Crypts</LongName>
+	</Map>
+	<Map>
+		<Id>559</Id>
+		<Name>PVPZone05</Name>
+		<LongName>Nagrand Arena</LongName>
+	</Map>
+	<Map>
+		<Id>560</Id>
+		<Name>HillsbradPast</Name>
+		<LongName>The Escape From Durnholde</LongName>
+	</Map>
+	<Map>
+		<Id>562</Id>
+		<Name>bladesedgearena</Name>
+		<LongName>Blade''s Edge Arena</LongName>
+	</Map>
+	<Map>
+		<Id>564</Id>
+		<Name>BlackTemple</Name>
+		<LongName>Black Temple</LongName>
+	</Map>
+	<Map>
+		<Id>565</Id>
+		<Name>GruulsLair</Name>
+		<LongName>Gruul''s Lair</LongName>
+	</Map>
+	<Map>
+		<Id>566</Id>
+		<Name>NetherstormBG</Name>
+		<LongName>Eye of the Storm</LongName>
+	</Map>
+	<Map>
+		<Id>568</Id>
+		<Name>ZulAman</Name>
+		<LongName>Zul''Aman</LongName>
+	</Map>
+	<Map>
+		<Id>571</Id>
+		<Name>Northrend</Name>
+		<LongName>Northrend</LongName>
+	</Map>
+	<Map>
+		<Id>572</Id>
+		<Name>PVPLordaeron</Name>
+		<LongName>Ruins of Lordaeron</LongName>
+	</Map>
+	<Map>
+		<Id>573</Id>
+		<Name>ExteriorTest</Name>
+		<LongName>ExteriorTest</LongName>
+	</Map>
+	<Map>
+		<Id>574</Id>
+		<Name>Valgarde70</Name>
+		<LongName>Utgarde Keep</LongName>
+	</Map>
+	<Map>
+		<Id>575</Id>
+		<Name>UtgardePinnacle</Name>
+		<LongName>Utgarde Pinnacle</LongName>
+	</Map>
+	<Map>
+		<Id>576</Id>
+		<Name>Nexus70</Name>
+		<LongName>The Nexus</LongName>
+	</Map>
+	<Map>
+		<Id>578</Id>
+		<Name>Nexus80</Name>
+		<LongName>The Oculus</LongName>
+	</Map>
+	<Map>
+		<Id>580</Id>
+		<Name>SunwellPlateau</Name>
+		<LongName>The Sunwell</LongName>
+	</Map>
+	<Map>
+		<Id>582</Id>
+		<Name>Transport176244</Name>
+		<LongName>Transport: Rut''theran to Auberdine</LongName>
+	</Map>
+	<Map>
+		<Id>584</Id>
+		<Name>Transport176231</Name>
+		<LongName>Transport: Menethil to Theramore</LongName>
+	</Map>
+	<Map>
+		<Id>585</Id>
+		<Name>Sunwell5ManFix</Name>
+		<LongName>Magister''s Terrace</LongName>
+	</Map>
+	<Map>
+		<Id>586</Id>
+		<Name>Transport181645</Name>
+		<LongName>Transport: Exodar to Auberdine</LongName>
+	</Map>
+	<Map>
+		<Id>587</Id>
+		<Name>Transport177233</Name>
+		<LongName>Transport: Feathermoon Ferry</LongName>
+	</Map>
+	<Map>
+		<Id>588</Id>
+		<Name>Transport176310</Name>
+		<LongName>Transport: Menethil to Auberdine</LongName>
+	</Map>
+	<Map>
+		<Id>589</Id>
+		<Name>Transport175080</Name>
+		<LongName>Transport: Orgrimmar to Grom''Gol</LongName>
+	</Map>
+	<Map>
+		<Id>590</Id>
+		<Name>Transport176495</Name>
+		<LongName>Transport: Grom''Gol to Undercity</LongName>
+	</Map>
+	<Map>
+		<Id>591</Id>
+		<Name>Transport164871</Name>
+		<LongName>Transport: Undercity to Orgrimmar</LongName>
+	</Map>
+	<Map>
+		<Id>592</Id>
+		<Name>Transport186238</Name>
+		<LongName>Transport: Borean Tundra Test</LongName>
+	</Map>
+	<Map>
+		<Id>593</Id>
+		<Name>Transport20808</Name>
+		<LongName>Transport: Booty Bay to Ratchet</LongName>
+	</Map>
+	<Map>
+		<Id>594</Id>
+		<Name>Transport187038</Name>
+		<LongName>Transport: Howling Fjord Sister Mercy (Quest)</LongName>
+	</Map>
+	<Map>
+		<Id>595</Id>
+		<Name>StratholmeCOT</Name>
+		<LongName>The Culling of Stratholme</LongName>
+	</Map>
+	<Map>
+		<Id>596</Id>
+		<Name>Transport187263</Name>
+		<LongName>Transport: Naglfar</LongName>
+	</Map>
+	<Map>
+		<Id>597</Id>
+		<Name>CraigTest</Name>
+		<LongName>Craig Test</LongName>
+	</Map>
+	<Map>
+		<Id>598</Id>
+		<Name>Sunwell5Man</Name>
+		<LongName>Sunwell Fix (Unused)</LongName>
+	</Map>
+	<Map>
+		<Id>599</Id>
+		<Name>Ulduar70</Name>
+		<LongName>Halls of Stone</LongName>
+	</Map>
+	<Map>
+		<Id>600</Id>
+		<Name>DrakTheronKeep</Name>
+		<LongName>Drak''Tharon Keep</LongName>
+	</Map>
+	<Map>
+		<Id>601</Id>
+		<Name>Azjol_Uppercity</Name>
+		<LongName>Azjol-Nerub</LongName>
+	</Map>
+	<Map>
+		<Id>602</Id>
+		<Name>Ulduar80</Name>
+		<LongName>Halls of Lightning</LongName>
+	</Map>
+	<Map>
+		<Id>603</Id>
+		<Name>UlduarRaid</Name>
+		<LongName>Ulduar</LongName>
+	</Map>
+	<Map>
+		<Id>604</Id>
+		<Name>GunDrak</Name>
+		<LongName>Gundrak</LongName>
+	</Map>
+	<Map>
+		<Id>605</Id>
+		<Name>development_nonweighted</Name>
+		<LongName>Development Land (non-weighted textures)</LongName>
+	</Map>
+	<Map>
+		<Id>606</Id>
+		<Name>QA_DVD</Name>
+		<LongName>QA and DVD</LongName>
+	</Map>
+	<Map>
+		<Id>607</Id>
+		<Name>NorthrendBG</Name>
+		<LongName>Strand of the Ancients</LongName>
+	</Map>
+	<Map>
+		<Id>608</Id>
+		<Name>DalaranPrison</Name>
+		<LongName>Violet Hold</LongName>
+	</Map>
+	<Map>
+		<Id>609</Id>
+		<Name>DeathKnightStart</Name>
+		<LongName>Ebon Hold</LongName>
+	</Map>
+	<Map>
+		<Id>610</Id>
+		<Name>Transport_Tirisfal _Vengeance_Landing</Name>
+		<LongName>Transport: Tirisfal to Vengeance Landing</LongName>
+	</Map>
+	<Map>
+		<Id>612</Id>
+		<Name>Transport_Menethil_Valgarde</Name>
+		<LongName>Transport: Menethil to Valgarde</LongName>
+	</Map>
+	<Map>
+		<Id>613</Id>
+		<Name>Transport_Orgrimmar_Warsong_Hold</Name>
+		<LongName>Transport: Orgrimmar to Warsong Hold</LongName>
+	</Map>
+	<Map>
+		<Id>614</Id>
+		<Name>Transport_Stormwind_Valiance_Keep</Name>
+		<LongName>Transport: Stormwind to Valiance Keep</LongName>
+	</Map>
+	<Map>
+		<Id>615</Id>
+		<Name>ChamberOfAspectsBlack</Name>
+		<LongName>The Obsidian Sanctum</LongName>
+	</Map>
+	<Map>
+		<Id>616</Id>
+		<Name>NexusRaid</Name>
+		<LongName>The Eye of Eternity</LongName>
+	</Map>
+	<Map>
+		<Id>617</Id>
+		<Name>DalaranArena</Name>
+		<LongName>Dalaran Sewers</LongName>
+	</Map>
+	<Map>
+		<Id>618</Id>
+		<Name>OrgrimmarArena</Name>
+		<LongName>The Ring of Valor</LongName>
+	</Map>
+	<Map>
+		<Id>619</Id>
+		<Name>Azjol_LowerCity</Name>
+		<LongName>Ahn''kahet: The Old Kingdom</LongName>
+	</Map>
+	<Map>
+		<Id>620</Id>
+		<Name>Transport_Moa''ki_Unu''pe</Name>
+		<LongName>Transport: Moa''ki to Unu''pe</LongName>
+	</Map>
+	<Map>
+		<Id>621</Id>
+		<Name>Transport_Moa''ki_Kamagua</Name>
+		<LongName>Transport: Moa''ki to Kamagua</LongName>
+	</Map>
+	<Map>
+		<Id>622</Id>
+		<Name>Transport192241</Name>
+		<LongName>Transport: Orgrim''s Hammer</LongName>
+	</Map>
+	<Map>
+		<Id>623</Id>
+		<Name>Transport192242</Name>
+		<LongName>Transport: The Skybreaker</LongName>
+	</Map>
+	<Map>
+		<Id>624</Id>
+		<Name>WintergraspRaid</Name>
+		<LongName>Vault of Archavon</LongName>
+	</Map>
+	<Map>
+		<Id>627</Id>
+		<Name>unused</Name>
+		<LongName>unused</LongName>
+	</Map>
+	<Map>
+		<Id>628</Id>
+		<Name>IsleofConquest</Name>
+		<LongName>Isle of Conquest</LongName>
+	</Map>
+	<Map>
+		<Id>631</Id>
+		<Name>IcecrownCitadel</Name>
+		<LongName>Icecrown Citadel</LongName>
+	</Map>
+	<Map>
+		<Id>632</Id>
+		<Name>IcecrownCitadel5Man</Name>
+		<LongName>The Forge of Souls</LongName>
+	</Map>
+	<Map>
+		<Id>637</Id>
+		<Name>AbyssalMaw</Name>
+		<LongName>Abyssal Maw Exterior</LongName>
+	</Map>
+	<Map>
+		<Id>638</Id>
+		<Name>Gilneas</Name>
+		<LongName>Gilneas</LongName>
+	</Map>
+	<Map>
+		<Id>641</Id>
+		<Name>Transport_AllianceAirshipBG</Name>
+		<LongName>Transport: Alliance Airship BG</LongName>
+	</Map>
+	<Map>
+		<Id>642</Id>
+		<Name>Transport_HordeAirshipBG</Name>
+		<LongName>Transport: HordeAirshipBG</LongName>
+	</Map>
+	<Map>
+		<Id>643</Id>
+		<Name>AbyssalMaw_Interior</Name>
+		<LongName>Throne of the Tides</LongName>
+	</Map>
+	<Map>
+		<Id>644</Id>
+		<Name>Uldum</Name>
+		<LongName>Halls of Origination</LongName>
+	</Map>
+	<Map>
+		<Id>645</Id>
+		<Name>BlackRockSpire_4_0</Name>
+		<LongName>Blackrock Caverns</LongName>
+	</Map>
+	<Map>
+		<Id>646</Id>
+		<Name>Deephome</Name>
+		<LongName>Deepholm</LongName>
+	</Map>
+	<Map>
+		<Id>647</Id>
+		<Name>Transport_Orgrimmar_to_Thunderbluff</Name>
+		<LongName>Transport: Orgrimmar to Thunder Bluff</LongName>
+	</Map>
+	<Map>
+		<Id>648</Id>
+		<Name>LostIsles</Name>
+		<LongName>LostIsles</LongName>
+	</Map>
+	<Map>
+		<Id>649</Id>
+		<Name>ArgentTournamentRaid</Name>
+		<LongName>Trial of the Crusader</LongName>
+	</Map>
+	<Map>
+		<Id>650</Id>
+		<Name>ArgentTournamentDungeon</Name>
+		<LongName>Trial of the Champion</LongName>
+	</Map>
+	<Map>
+		<Id>651</Id>
+		<Name>ElevatorSpawnTest</Name>
+		<LongName>ElevatorSpawnTest</LongName>
+	</Map>
+	<Map>
+		<Id>654</Id>
+		<Name>Gilneas2</Name>
+		<LongName>Gilneas2</LongName>
+	</Map>
+	<Map>
+		<Id>655</Id>
+		<Name>GilneasPhase1</Name>
+		<LongName>GilneasPhase1</LongName>
+	</Map>
+	<Map>
+		<Id>656</Id>
+		<Name>GilneasPhase2</Name>
+		<LongName>GilneasPhase2</LongName>
+	</Map>
+	<Map>
+		<Id>657</Id>
+		<Name>SkywallDungeon</Name>
+		<LongName>The Vortex Pinnacle</LongName>
+	</Map>
+	<Map>
+		<Id>658</Id>
+		<Name>QuarryofTears</Name>
+		<LongName>Pit of Saron</LongName>
+	</Map>
+	<Map>
+		<Id>659</Id>
+		<Name>LostIslesPhase1</Name>
+		<LongName>Lost Isles Volcano Eruption</LongName>
+	</Map>
+	<Map>
+		<Id>660</Id>
+		<Name>Deephomeceiling</Name>
+		<LongName>Deephome Ceiling</LongName>
+	</Map>
+	<Map>
+		<Id>661</Id>
+		<Name>LostIslesPhase2</Name>
+		<LongName>Lost Isles Town in a Box</LongName>
+	</Map>
+	<Map>
+		<Id>662</Id>
+		<Name>Transport197195</Name>
+		<LongName>Transport: Alliance Vashj''ir Ship</LongName>
+	</Map>
+	<Map>
+		<Id>668</Id>
+		<Name>HallsOfReflection</Name>
+		<LongName>Halls of Reflection</LongName>
+	</Map>
+	<Map>
+		<Id>669</Id>
+		<Name>BlackwingDescent</Name>
+		<LongName>Blackwing Descent</LongName>
+	</Map>
+	<Map>
+		<Id>670</Id>
+		<Name>GrimBatolDungeon</Name>
+		<LongName>Grim Batol</LongName>
+	</Map>
+	<Map>
+		<Id>671</Id>
+		<Name>GrimBatolRaid</Name>
+		<LongName>The Bastion of Twilight</LongName>
+	</Map>
+	<Map>
+		<Id>672</Id>
+		<Name>Transport197347</Name>
+		<LongName>Transport: The Skybreaker (Icecrown Citadel Raid)</LongName>
+	</Map>
+	<Map>
+		<Id>673</Id>
+		<Name>Transport197348</Name>
+		<LongName>Transport: Orgrim''s Hammer (Icecrown Citadel Raid)</LongName>
+	</Map>
+	<Map>
+		<Id>674</Id>
+		<Name>Transport197349-2</Name>
+		<LongName>Transport: Ship to Vashj''ir</LongName>
+	</Map>
+	<Map>
+		<Id>712</Id>
+		<Name>Transport197349</Name>
+		<LongName>Transport: The Skybreaker (IC Dungeon)</LongName>
+	</Map>
+	<Map>
+		<Id>713</Id>
+		<Name>Transport197350</Name>
+		<LongName>Transport: Orgrim''s Hammer (IC Dungeon)</LongName>
+	</Map>
+	<Map>
+		<Id>718</Id>
+		<Name>Transport201834</Name>
+		<LongName>Trasnport: The Mighty Wind (Icecrown Citadel Raid)</LongName>
+	</Map>
+	<Map>
+		<Id>719</Id>
+		<Name>MountHyjalPhase1</Name>
+		<LongName>Mount Hyjal Phase 1</LongName>
+	</Map>
+	<Map>
+		<Id>720</Id>
+		<Name>Firelands1</Name>
+		<LongName>Firelands</LongName>
+	</Map>
+	<Map>
+		<Id>721</Id>
+		<Name>Firelands2</Name>
+		<LongName>Firelands Terrain 2</LongName>
+	</Map>
+	<Map>
+		<Id>723</Id>
+		<Name>Stormwind</Name>
+		<LongName>Stormwind</LongName>
+	</Map>
+	<Map>
+		<Id>724</Id>
+		<Name>ChamberofAspectsRed</Name>
+		<LongName>The Ruby Sanctum</LongName>
+	</Map>
+	<Map>
+		<Id>725</Id>
+		<Name>DeepholmeDungeon</Name>
+		<LongName>The Stonecore</LongName>
+	</Map>
+	<Map>
+		<Id>726</Id>
+		<Name>CataclysmCTF</Name>
+		<LongName>Twin Peaks</LongName>
+	</Map>
+	<Map>
+		<Id>727</Id>
+		<Name>STV_Mine_BG</Name>
+		<LongName>STV Diamond Mine BG</LongName>
+	</Map>
+	<Map>
+		<Id>728</Id>
+		<Name>TheBattleforGilneas</Name>
+		<LongName>The Battle for Gilneas (Old City Map)</LongName>
+	</Map>
+	<Map>
+		<Id>730</Id>
+		<Name>MaelstromZone</Name>
+		<LongName>Maelstrom Zone</LongName>
+	</Map>
+	<Map>
+		<Id>731</Id>
+		<Name>DesolaceBomb</Name>
+		<LongName>Stonetalon Bomb</LongName>
+	</Map>
+	<Map>
+		<Id>732</Id>
+		<Name>TolBarad</Name>
+		<LongName>Tol Barad</LongName>
+	</Map>
+	<Map>
+		<Id>734</Id>
+		<Name>AhnQirajTerrace</Name>
+		<LongName>Ahn''Qiraj Terrace</LongName>
+	</Map>
+	<Map>
+		<Id>736</Id>
+		<Name>TwilightHighlandsDragonmawPhase</Name>
+		<LongName>Twilight Highlands Dragonmaw Phase</LongName>
+	</Map>
+	<Map>
+		<Id>738</Id>
+		<Name>Transport200100</Name>
+		<LongName>Ship to Vashj''ir (Orgrimmar -&gt; Vashj''ir)</LongName>
+	</Map>
+	<Map>
+		<Id>739</Id>
+		<Name>Transport200101</Name>
+		<LongName>Vashj''ir Sub - Horde</LongName>
+	</Map>
+	<Map>
+		<Id>740</Id>
+		<Name>Transport200102</Name>
+		<LongName>Vashj''ir Sub - Alliance</LongName>
+	</Map>
+	<Map>
+		<Id>741</Id>
+		<Name>Transport200103</Name>
+		<LongName>Twilight Highlands Horde Transport</LongName>
+	</Map>
+	<Map>
+		<Id>742</Id>
+		<Name>Transport203729</Name>
+		<LongName>Vashj''ir Sub - Horde - Circling Abyssal Maw</LongName>
+	</Map>
+	<Map>
+		<Id>743</Id>
+		<Name>Transport203730</Name>
+		<LongName>Vashj''ir Sub - Alliance circling Abyssal Maw</LongName>
+	</Map>
+	<Map>
+		<Id>746</Id>
+		<Name>UldumPhaseOasis</Name>
+		<LongName>Uldum Phase Oasis</LongName>
+	</Map>
+	<Map>
+		<Id>747</Id>
+		<Name>Transport 203732</Name>
+		<LongName>Transport: Deepholm Gunship</LongName>
+	</Map>
+	<Map>
+		<Id>748</Id>
+		<Name>Transport203858</Name>
+		<LongName>Transport: Onyxia/Nefarian Elevator</LongName>
+	</Map>
+	<Map>
+		<Id>749</Id>
+		<Name>Transport203859</Name>
+		<LongName>Transport: Gilneas Moving Gunship</LongName>
+	</Map>
+	<Map>
+		<Id>750</Id>
+		<Name>Transport203860</Name>
+		<LongName>Transport: Gilneas Static Gunship</LongName>
+	</Map>
+	<Map>
+		<Id>751</Id>
+		<Name>RedgridgeOrcBomb</Name>
+		<LongName>Redridge - Orc Bomb</LongName>
+	</Map>
+	<Map>
+		<Id>752</Id>
+		<Name>RedridgeBridgePhaseOne</Name>
+		<LongName>Redridge - Bridge Phase One</LongName>
+	</Map>
+	<Map>
+		<Id>753</Id>
+		<Name>RedridgeBridgePhaseTwo</Name>
+		<LongName>Redridge - Bridge Phase Two</LongName>
+	</Map>
+	<Map>
+		<Id>754</Id>
+		<Name>SkywallRaid</Name>
+		<LongName>Throne of the Four Winds</LongName>
+	</Map>
+	<Map>
+		<Id>755</Id>
+		<Name>UldumDungeon</Name>
+		<LongName>Lost City of the Tol''vir</LongName>
+	</Map>
+	<Map>
+		<Id>757</Id>
+		<Name>BaradinHold</Name>
+		<LongName>Baradin Hold</LongName>
+	</Map>
+	<Map>
+		<Id>759</Id>
+		<Name>UldumPhasedEntrance</Name>
+		<LongName>Uldum Phased Entrance</LongName>
+	</Map>
+	<Map>
+		<Id>760</Id>
+		<Name>TwilightHighlandsPhasedEntrance</Name>
+		<LongName>Twilight Highlands Phased Entrance</LongName>
+	</Map>
+	<Map>
+		<Id>761</Id>
+		<Name>Gilneas_BG_2</Name>
+		<LongName>The Battle for Gilneas</LongName>
+	</Map>
+	<Map>
+		<Id>762</Id>
+		<Name>Transport 203861</Name>
+		<LongName>Twilight Highlands Zeppelin 1</LongName>
+	</Map>
+	<Map>
+		<Id>763</Id>
+		<Name>Transport 203862</Name>
+		<LongName>Twilight Highlands Zeppelin 2</LongName>
+	</Map>
+	<Map>
+		<Id>764</Id>
+		<Name>UldumPhaseWreckedCamp</Name>
+		<LongName>Uldum - Phase Wrecked Camp</LongName>
+	</Map>
+	<Map>
+		<Id>765</Id>
+		<Name>Transport203863</Name>
+		<LongName>Krazzworks Attack Zeppelin</LongName>
+	</Map>
+	<Map>
+		<Id>766</Id>
+		<Name>Transport 2033864</Name>
+		<LongName>Transport: Gilneas Moving Gunship 02</LongName>
+	</Map>
+	<Map>
+		<Id>767</Id>
+		<Name>Transport 2033865</Name>
+		<LongName>Transport: Gilneas Moving Gunship 03</LongName>
+	</Map>
+</ArrayOfMap>
