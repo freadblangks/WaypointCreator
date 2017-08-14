@@ -23,6 +23,10 @@ namespace WaypointCreator
 
         private bool _selected;
 
+ 
+
+        private uint _unitFlags;
+
         public readonly Guid WaypointContainerGuid = Guid.NewGuid();
         #endregion
 
@@ -91,6 +95,21 @@ namespace WaypointCreator
             set
             {
                 _selected = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool InCombat => (UnitFlags & 524288u) != 0;
+
+        public uint UnitFlags
+        {
+            get
+            {
+                return _unitFlags;
+            }
+            set
+            {
+                _unitFlags = value;
                 OnPropertyChanged();
             }
         }

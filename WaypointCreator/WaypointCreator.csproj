@@ -160,6 +160,11 @@
     </Compile>
     <Compile Include="Extensions.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="PropertyComparer.cs" />
     <Compile Include="SortableBindingList.cs" />
     <Compile Include="LoginForm.cs">
@@ -199,6 +204,10 @@
     </Compile>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Viewer\ViewerForm.resx">
       <DependentUpon>ViewerForm.cs</DependentUpon>

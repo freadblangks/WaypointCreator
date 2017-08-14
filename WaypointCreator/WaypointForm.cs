@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 using Microsoft.DirectX;
@@ -336,6 +335,13 @@ namespace WaypointCreator
                                     waypointContainer.Entry = packetline[8].ToUint();
                                     waypointContainer.GUID = packetline[2];
 
+                                    var last = _waypointContainers.LastOrDefault(x => x.GUID == waypointContainer.GUID);
+
+                                    if (last != null)
+                                    {
+                                        waypointContainer.UnitFlags = last.UnitFlags;
+                                    }
+
                                     if (_creatureTemplateEntryAndNameList.ContainsKey(waypointContainer.Entry))
                                     {
                                         waypointContainer.Name = _creatureTemplateEntryAndNameList[waypointContainer.Entry];
@@ -422,7 +428,6 @@ namespace WaypointCreator
                                     }
                                 }
                             }
-
                             /*
                             if (lines[i].Contains("Transport/0"))
                             {
@@ -459,6 +464,14 @@ namespace WaypointCreator
                                                                     O = 0f,
                                                                     Time = timeSpan
                                                                 });
+                            }
+                            else if (line.Contains("UNIT_FIELD_FLAGS:") && waypointContainer != null)
+                            {
+                                var packetline = line.Split(' ');
+
+                                var unitFlags = packetline[2].Split('/')[0].ToUint();
+
+                                waypointContainer.UnitFlags = unitFlags;
                             }
                         }
                         while (line != string.Empty);
@@ -499,6 +512,7 @@ namespace WaypointCreator
         private void UpdateWaypointContainerGridView()
         {
             var quary = _waypointContainers.AsQueryable();
+ 
             var filterText = ToolStripTextBoxFilterText.Text;
             if (!string.IsNullOrWhiteSpace(filterText))
             {

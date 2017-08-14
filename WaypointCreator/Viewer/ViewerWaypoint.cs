@@ -43,7 +43,7 @@ namespace WaypointCreator.Viewer
         public override string ToString()
         {
             //inverse x and y because viewer and textures works inverse
-            return $"{Index} - X: {Position.Y} Y: {Position.X}";
+            return $"{Index}"; // $"{Index} - X: {Position.Y} Y: {Position.X}";
         }
 
         #endregion

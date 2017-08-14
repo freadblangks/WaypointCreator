@@ -40,10 +40,9 @@
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.WaypointContainerGridView = new System.Windows.Forms.DataGridView();
-            this.SelectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.EntryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.exportToUDBSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copySqlToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.WaypointGridView = new System.Windows.Forms.DataGridView();
             this.IndexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.XDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,10 +51,12 @@
             this.ODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WaitTImeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exportToUDBSQLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copySqlToClipboardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.SelectedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.EntryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewTextBoxColumnUnitFlags = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStripEdit.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -63,8 +64,8 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WaypointContainerGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WaypointGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WaypointGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripEdit
@@ -157,6 +158,7 @@
             this.SelectedDataGridViewCheckBoxColumn,
             this.EntryDataGridViewTextBoxColumn,
             this.GuidDataGridViewTextBoxColumn,
+            this.DataGridViewTextBoxColumnUnitFlags,
             this.NameDataGridViewTextBoxColumn});
             this.WaypointContainerGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.WaypointContainerGridView.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -169,35 +171,27 @@
             this.WaypointContainerGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.WaypointContainerGridView_CellValueChanged);
             this.WaypointContainerGridView.SelectionChanged += new System.EventHandler(this.WaypointContainerGridView_SelectionChanged);
             // 
-            // SelectedDataGridViewCheckBoxColumn
+            // contextMenuStrip1
             // 
-            this.SelectedDataGridViewCheckBoxColumn.DataPropertyName = "Selected";
-            this.SelectedDataGridViewCheckBoxColumn.FalseValue = "False";
-            this.SelectedDataGridViewCheckBoxColumn.HeaderText = "Selected";
-            this.SelectedDataGridViewCheckBoxColumn.IndeterminateValue = "";
-            this.SelectedDataGridViewCheckBoxColumn.Name = "SelectedDataGridViewCheckBoxColumn";
-            this.SelectedDataGridViewCheckBoxColumn.TrueValue = "True";
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exportToUDBSQLToolStripMenuItem,
+            this.copySqlToClipboardToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(194, 48);
             // 
-            // EntryDataGridViewTextBoxColumn
+            // exportToUDBSQLToolStripMenuItem
             // 
-            this.EntryDataGridViewTextBoxColumn.DataPropertyName = "Entry";
-            this.EntryDataGridViewTextBoxColumn.HeaderText = "Entry";
-            this.EntryDataGridViewTextBoxColumn.Name = "EntryDataGridViewTextBoxColumn";
-            this.EntryDataGridViewTextBoxColumn.ReadOnly = true;
+            this.exportToUDBSQLToolStripMenuItem.Name = "exportToUDBSQLToolStripMenuItem";
+            this.exportToUDBSQLToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.exportToUDBSQLToolStripMenuItem.Text = "Export To Sql File";
+            this.exportToUDBSQLToolStripMenuItem.Click += new System.EventHandler(this.exportToUDBSQLToolStripMenuItem_Click);
             // 
-            // GuidDataGridViewTextBoxColumn
+            // copySqlToClipboardToolStripMenuItem
             // 
-            this.GuidDataGridViewTextBoxColumn.DataPropertyName = "GUID";
-            this.GuidDataGridViewTextBoxColumn.HeaderText = "GUID";
-            this.GuidDataGridViewTextBoxColumn.Name = "GuidDataGridViewTextBoxColumn";
-            this.GuidDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // NameDataGridViewTextBoxColumn
-            // 
-            this.NameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.NameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn";
-            this.NameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.copySqlToClipboardToolStripMenuItem.Name = "copySqlToClipboardToolStripMenuItem";
+            this.copySqlToClipboardToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.copySqlToClipboardToolStripMenuItem.Text = "Copy Sql To Clipboard";
+            this.copySqlToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copySqlToClipboardToolStripMenuItem_Click);
             // 
             // WaypointGridView
             // 
@@ -263,27 +257,43 @@
             this.WaitTImeDataGridViewTextBoxColumn.HeaderText = "WaitTIme";
             this.WaitTImeDataGridViewTextBoxColumn.Name = "WaitTImeDataGridViewTextBoxColumn";
             // 
-            // contextMenuStrip1
+            // SelectedDataGridViewCheckBoxColumn
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportToUDBSQLToolStripMenuItem,
-            this.copySqlToClipboardToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(194, 48);
+            this.SelectedDataGridViewCheckBoxColumn.DataPropertyName = "Selected";
+            this.SelectedDataGridViewCheckBoxColumn.FalseValue = "False";
+            this.SelectedDataGridViewCheckBoxColumn.HeaderText = "Selected";
+            this.SelectedDataGridViewCheckBoxColumn.IndeterminateValue = "";
+            this.SelectedDataGridViewCheckBoxColumn.Name = "SelectedDataGridViewCheckBoxColumn";
+            this.SelectedDataGridViewCheckBoxColumn.TrueValue = "True";
             // 
-            // exportToUDBSQLToolStripMenuItem
+            // EntryDataGridViewTextBoxColumn
             // 
-            this.exportToUDBSQLToolStripMenuItem.Name = "exportToUDBSQLToolStripMenuItem";
-            this.exportToUDBSQLToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.exportToUDBSQLToolStripMenuItem.Text = "Export To Sql File";
-            this.exportToUDBSQLToolStripMenuItem.Click += new System.EventHandler(this.exportToUDBSQLToolStripMenuItem_Click);
+            this.EntryDataGridViewTextBoxColumn.DataPropertyName = "Entry";
+            this.EntryDataGridViewTextBoxColumn.HeaderText = "Entry";
+            this.EntryDataGridViewTextBoxColumn.Name = "EntryDataGridViewTextBoxColumn";
+            this.EntryDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // copySqlToClipboardToolStripMenuItem
+            // GuidDataGridViewTextBoxColumn
             // 
-            this.copySqlToClipboardToolStripMenuItem.Name = "copySqlToClipboardToolStripMenuItem";
-            this.copySqlToClipboardToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.copySqlToClipboardToolStripMenuItem.Text = "Copy Sql To Clipboard";
-            this.copySqlToClipboardToolStripMenuItem.Click += new System.EventHandler(this.copySqlToClipboardToolStripMenuItem_Click);
+            this.GuidDataGridViewTextBoxColumn.DataPropertyName = "GUID";
+            this.GuidDataGridViewTextBoxColumn.HeaderText = "GUID";
+            this.GuidDataGridViewTextBoxColumn.Name = "GuidDataGridViewTextBoxColumn";
+            this.GuidDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DataGridViewTextBoxColumnUnitFlags
+            // 
+            this.DataGridViewTextBoxColumnUnitFlags.DataPropertyName = "UnitFlags";
+            this.DataGridViewTextBoxColumnUnitFlags.HeaderText = "UnitFlags";
+            this.DataGridViewTextBoxColumnUnitFlags.Name = "DataGridViewTextBoxColumnUnitFlags";
+            this.DataGridViewTextBoxColumnUnitFlags.ReadOnly = true;
+            this.DataGridViewTextBoxColumnUnitFlags.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // NameDataGridViewTextBoxColumn
+            // 
+            this.NameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.NameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn";
+            this.NameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // WaypointForm
             // 
@@ -306,8 +316,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WaypointContainerGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WaypointGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WaypointGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,10 +333,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView WaypointContainerGridView;
         private System.Windows.Forms.DataGridView WaypointGridView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn SelectedDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EntryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuidDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn IndexDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn XDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn YDataGridViewTextBoxColumn;
@@ -341,5 +347,10 @@
         private System.Windows.Forms.ToolStripMenuItem exportToUDBSQLToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copySqlToClipboardToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn SelectedDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EntryDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuidDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataGridViewTextBoxColumnUnitFlags;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDataGridViewTextBoxColumn;
     }
 }
