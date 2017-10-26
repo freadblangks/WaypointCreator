@@ -52,6 +52,18 @@ namespace WaypointCreator
             return 0u;
         }
 
+        public static long ToLong(this string val)
+        {
+            long result;
+
+            if (long.TryParse(val, out result))
+            {
+                return result;
+            }
+
+            return 0;
+        }
+
         #endregion
     }
 }

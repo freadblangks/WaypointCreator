@@ -42,6 +42,9 @@ namespace WaypointCreator.Viewer
 
         private float _speed = 2f;
 
+        private bool _updateInprogress;
+
+        private bool _linkPaths = true;
         #endregion
 
         #region Constructors and Destructors
@@ -179,33 +182,81 @@ namespace WaypointCreator.Viewer
             }
             catch
             {
-                //Ignore
             }
+        }
+
+        public void DrawObject(ViewerObjectBase obj)
+        {
+            var x = 2f * (2f / _scale);
+            _device.Transform.World = Matrix.Scaling(x, x, x);
+
+            if (obj.Rotate)
+            {
+                var transforms1 = _device.Transform;
+                transforms1.World *= Matrix.RotationZ(6.283185f - obj.Orientation);
+            }
+
+            var transform = _device.Transform;
+
+            transform.World *= Matrix.Translation(obj.Position);
+
+            _device.RenderState.TextureFactor = obj.Color;
+            var textureState = _device.TextureState[0];
+            textureState.ColorOperation = TextureOperation.Modulate;
+            textureState.ColorArgument0 = TextureArgument.TextureColor;
+            textureState.ColorArgument1 = TextureArgument.TFactor;
+            _device.VertexFormat = VertexFormats.Diffuse | VertexFormats.Position;
+            _device.SetTexture(0, null);
+            _device.SetStreamSource(0, obj.VbBuffer, 0);
+            _device.DrawPrimitives(PrimitiveType.TriangleList, 0, obj.NumberOfVertexs);
+
+            var v = Vector3.Project(new Vector3(0f, 0f, 0f), _device.Viewport, _device.Transform.Projection, _device.Transform.View, _device.Transform.World);
+            obj.Vector2 = new Vector2(v.X, v.Y);
+            _font.DrawText(null, obj.ToString(), (int)v.X + 10, (int)v.Y - 4, _textColor);
         }
 
         public void InitializeDxDevice()
         {
             try
             {
-                _device = new Device(0, DeviceType.Hardware, this, CreateFlags.SoftwareVertexProcessing,
+                _device = new Device
+                (0,
+                    DeviceType.Hardware,
+                    this,
+                    CreateFlags.SoftwareVertexProcessing,
                     new PresentParameters
                     {
                         Windowed = true,
                         SwapEffect = SwapEffect.Discard
                     });
 
-                VbSpectator = new VertexBuffer(typeof(CustomVertex.PositionColored), 6, _device, Usage.None,
-                    VertexFormats.Diffuse | VertexFormats.Position, Pool.Default);
+                VbSpectator = new VertexBuffer
+                (typeof(CustomVertex.PositionColored),
+                    6,
+                    _device,
+                    Usage.None,
+                    VertexFormats.Diffuse | VertexFormats.Position,
+                    Pool.Default);
                 VbSpectator.Created += OnCreateVbSpectator;
                 OnCreateVbSpectator(VbSpectator);
 
-                VbWaypoint = new VertexBuffer(typeof(CustomVertex.PositionColored), 6, _device, Usage.None,
-                    VertexFormats.Diffuse | VertexFormats.Position, Pool.Default);
+                VbWaypoint = new VertexBuffer
+                (typeof(CustomVertex.PositionColored),
+                    6,
+                    _device,
+                    Usage.None,
+                    VertexFormats.Diffuse | VertexFormats.Position,
+                    Pool.Default);
                 VbWaypoint.Created += OnCreateVbWaypoint;
                 OnCreateVbWaypoint(VbWaypoint, null);
 
-                VbMapTexture = new VertexBuffer(typeof(CustomVertex.PositionNormalTextured), 6, _device, Usage.None,
-                    VertexFormats.Texture1 | VertexFormats.PositionNormal, Pool.Default);
+                VbMapTexture = new VertexBuffer
+                (typeof(CustomVertex.PositionNormalTextured),
+                    6,
+                    _device,
+                    Usage.None,
+                    VertexFormats.Texture1 | VertexFormats.PositionNormal,
+                    Pool.Default);
                 VbMapTexture.Created += OnCreateVbMapTexture;
                 OnCreateVbMapTexture(VbMapTexture);
 
@@ -266,36 +317,6 @@ namespace WaypointCreator.Viewer
         public void OnResetDevice(object sender, EventArgs e)
         {
             OnResetDevice(sender as Device);
-        }
-
-        public void DrawObject(ViewerObjectBase obj)
-        {
-            var x = 2f * (2f / _scale);
-            _device.Transform.World = Matrix.Scaling(x, x, x);
-
-            if (obj.Rotate)
-            {
-                var transforms1 = _device.Transform;
-                transforms1.World *= Matrix.RotationZ(6.283185f - obj.Orientation);
-            }
-
-            var transform = _device.Transform;
-
-            transform.World *= Matrix.Translation(obj.Position);
-
-            _device.RenderState.TextureFactor = obj.Color;
-            var textureState = _device.TextureState[0];
-            textureState.ColorOperation = TextureOperation.Modulate;
-            textureState.ColorArgument0 = TextureArgument.TextureColor;
-            textureState.ColorArgument1 = TextureArgument.TFactor;
-            _device.VertexFormat = VertexFormats.Diffuse | VertexFormats.Position;
-            _device.SetTexture(0, null);
-            _device.SetStreamSource(0, obj.VbBuffer, 0);
-            _device.DrawPrimitives(PrimitiveType.TriangleList, 0, obj.NumberOfVertexs);
-
-            var v = Vector3.Project(new Vector3(0f, 0f, 0f), _device.Viewport, _device.Transform.Projection, _device.Transform.View, _device.Transform.World);
-            obj.Vector2 = new Vector2(v.X, v.Y);
-            _font.DrawText(null, obj.ToString(), (int)v.X + 10, (int)v.Y - 4, _textColor);
         }
 
         public void UpdateViewer()
@@ -380,7 +401,10 @@ namespace WaypointCreator.Viewer
                 try
                 {
                     using (
-                        var imageStreamSource = new FileStream(mapTexture.Filename, FileMode.Open, FileAccess.Read,
+                        var imageStreamSource = new FileStream
+                        (mapTexture.Filename,
+                            FileMode.Open,
+                            FileAccess.Read,
                             FileShare.Read))
                     {
                         mapTexture.Texture = TextureLoader.FromStream(_device, imageStreamSource);
@@ -445,7 +469,7 @@ namespace WaypointCreator.Viewer
 
         private void OnException(Exception exc)
         {
-            MessageBox.Show(exc.ToString());
+            // MessageBox.Show(exc.ToString());
         }
 
         private void OnSelectMap_Click(object sender, EventArgs e)
@@ -489,6 +513,10 @@ namespace WaypointCreator.Viewer
 
         private void UpdateAsync()
         {
+            if (_updateInprogress)
+                return;
+
+            _updateInprogress = true;
             if (_resizing)
             {
                 return;
@@ -517,8 +545,11 @@ namespace WaypointCreator.Viewer
                     cameraPosition.Add(ViewerSpectator.Position);
 
                     _device.Transform.View = Matrix.LookAtLH(cameraPosition, cameraTarget, cameraUpVector);
-                    _device.Transform.Projection = Matrix.PerspectiveLH(
-                        Width / (ValueZ * _scale), Height / (ValueZ * _scale), 1f,
+                    _device.Transform.Projection = Matrix.PerspectiveLH
+                    (
+                        Width / (ValueZ * _scale),
+                        Height / (ValueZ * _scale),
+                        1f,
                         1000000f);
 
                     _device.BeginScene();
@@ -532,16 +563,19 @@ namespace WaypointCreator.Viewer
 
                     DrawObject(ViewerSpectator);
 
-                    foreach (var group in Waypoints.GroupBy(_ => _.WaypointContainerGuid))
+                    if (_linkPaths)
                     {
-                        foreach (var from in group.OrderBy(x => x.Index))
+                        foreach (var group in Waypoints.GroupBy(_ => _.Guid))
                         {
-                            var to = group.FirstOrDefault(_ => _.Index > from.Index);
+                            foreach (var from in group.OrderBy(x => x.Time).ThenBy(x => x.Index))
+                            {
+                                var to = group.FirstOrDefault(_ => _.Index > from.Index);
 
-                            if (to == null)
-                                break;
+                                if (to == null)
+                                    break;
 
-                            DrawLine(from, to);
+                                DrawLine(from, to);
+                            }
                         }
                     }
 
@@ -554,8 +588,13 @@ namespace WaypointCreator.Viewer
             {
                 OnException(ex);
 
-                Close();
+                if (InvokeRequired)
+                {
+                    Invoke(new Action(Close));
+                }
             }
+
+            _updateInprogress = false;
         }
 
         private void ViewerForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -583,9 +622,8 @@ namespace WaypointCreator.Viewer
 
                 _device.Dispose();
             }
-            catch (Exception ex)
+            catch 
             {
-                OnException(ex);
             }
         }
 
@@ -620,11 +658,11 @@ namespace WaypointCreator.Viewer
                         break;
                     case Keys.F2:
                         ZoomIn();
-                        UpdateViewer();
+
                         break;
                     case Keys.F3:
                         ZoomOut();
-                        UpdateViewer();
+
                         break;
 
                     case Keys.Up:
@@ -676,6 +714,7 @@ namespace WaypointCreator.Viewer
         {
             if (_device == null)
                 return;
+
             lock (_device)
             {
                 _resizing = false;
@@ -693,11 +732,14 @@ namespace WaypointCreator.Viewer
         {
             if (_device == null)
                 return;
+
             lock (_device)
             {
                 _scale *= 0.9f;
                 _speed *= 1.1f;
             }
+
+            UpdateViewer();
         }
 
         private void ZoomOut()
@@ -710,8 +752,21 @@ namespace WaypointCreator.Viewer
                 _scale *= 1.1f;
                 _speed *= 0.9f;
             }
+
+            UpdateViewer();
         }
 
         #endregion
+
+        private void linkPathsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkPathsToolStripMenuItem_CheckStateChanged(object sender, EventArgs e)
+        {
+            _linkPaths = linkPathsToolStripMenuItem.Checked;
+            Task.Factory.StartNew(UpdateAsync);
+        }
     }
 }

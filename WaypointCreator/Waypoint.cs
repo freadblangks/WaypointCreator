@@ -3,7 +3,6 @@
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 
 using WaypointCreator.Properties;
 
@@ -17,11 +16,13 @@ namespace WaypointCreator
 
         public readonly Guid WaypointGuid = Guid.NewGuid();
 
-        private int _index;
+        private double _estimatedSpawnDistance;
+
+        private uint _index;
+
+        private bool _isAverage;
 
         private float _o;
-
-        private TimeSpan _time;
 
         private int _waitTime;
 
@@ -41,7 +42,20 @@ namespace WaypointCreator
 
         #region Public Properties
 
-        public int Index
+        public double EstimatedSpawnDistance
+        {
+            get
+            {
+                return _estimatedSpawnDistance;
+            }
+            set
+            {
+                _estimatedSpawnDistance = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public uint Index
         {
             get
             {
@@ -50,6 +64,19 @@ namespace WaypointCreator
             set
             {
                 _index = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsAverage
+        {
+            get
+            {
+                return _isAverage;
+            }
+            set
+            {
+                _isAverage = value;
                 OnPropertyChanged();
             }
         }
@@ -67,18 +94,7 @@ namespace WaypointCreator
             }
         }
 
-        public TimeSpan Time
-        {
-            get
-            {
-                return _time;
-            }
-            set
-            {
-                _time = value;
-                OnPropertyChanged();
-            }
-        }
+        public TimeSpan Time { get; set; }
 
         public int WaitTime
         {
@@ -138,12 +154,17 @@ namespace WaypointCreator
 
         #region Public Methods and Operators
 
-        public void FillSql(StringBuilder sb)
+        public double Distance(float toX, float toY, float toZ)
         {
-            /*INSERT INTO `creature_movement` 
-            * (`id`,`point`,`position_x`,`position_y`,`position_z`,`waittime`,`script_id`,`textid1`,`textid2`,`textid3`,`textid4`,`textid5`,`emote`,`spell`,`orientation`,`model1`,`model2`) 
-            * VALUES*/
-            sb.AppendLine($"(@GUID,{Index},{X},{Y},{Z},{WaitTime},0,0,0,0,0,0,0,0,{O},0,0),");
+            var dX = X - toX;
+            var dY = Y - toY;
+            var dZ = Z - toZ;
+            return Math.Sqrt(dX * dX + dY * dY + dZ * dZ);
+        }
+
+        public bool IsEmpty()
+        {
+            return X == 0 && Y == 0 && Z == 0;
         }
 
         #endregion
@@ -153,7 +174,8 @@ namespace WaypointCreator
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (WaypointContainer.EnablePropertyChanged)
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion

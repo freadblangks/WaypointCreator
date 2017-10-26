@@ -27,6 +27,17 @@ namespace WaypointCreator.EntityFramework
             }
         }
 
+        public static creature GetFirstCreatureByid(uint id)
+        {
+            if (!Settings.Default.UsingDB)
+                return null;
+
+            using (var context = SetConfiguredConnection(new CoreDBEntities()))
+            {
+                return context.creatures.FirstOrDefault(x => x.id == id);
+            }
+        }
+
         public static CoreDBEntities SetConfiguredConnection(CoreDBEntities context)
         {
             var builder = new MySqlConnectionStringBuilder(context.Database.Connection.ConnectionString)

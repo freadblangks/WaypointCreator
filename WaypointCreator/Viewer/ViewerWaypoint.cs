@@ -32,9 +32,11 @@ namespace WaypointCreator.Viewer
 
         public string Guid { get; set; }
 
-        public int Index { get; set; }
+        public uint Index { get; set; }
 
         public Guid WaypointContainerGuid { get; set; }
+
+        public TimeSpan Time { get; set; }
 
         #endregion
 
