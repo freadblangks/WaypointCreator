@@ -475,7 +475,6 @@ namespace WaypointCreator
 
                     if (line.Contains("SMSG_ON_MONSTER_MOVE") || line.Contains("SMSG_MONSTER_MOVE"))
                     {
-
                         WaypointContainer waypointContainer = null;
                         Waypoint lastPoint = null;
 
@@ -493,10 +492,11 @@ namespace WaypointCreator
                                 if (line.Contains("Creature/0") || line.Contains("Vehicle/0"))
                                 {
                                     index++;
-                                      waypointContainer = new WaypointContainer
-                                                            {
-                                                                Index = index
-                                                            };
+                                    waypointContainer = new WaypointContainer
+                                                        {
+                                                            WaypointSouceType = WaypointSouceType.MonsterMove,
+                                                            Index = index
+                                                        };
                                     list.Add(waypointContainer);
 
                                     var packetline = line.Split(' ');
@@ -508,7 +508,6 @@ namespace WaypointCreator
                                         waypointContainer.Name = _creatureTemplateEntryAndNameList[waypointContainer.Entry];
                                     }
                                 }
-                      
                             }
                             else if (waypointContainer != null && line.Contains("PointsCount:"))
                             {
@@ -520,14 +519,14 @@ namespace WaypointCreator
                                 var packetline = line.Split(' ');
 
                                 lastPoint = new Waypoint
-                                 {
-                                     Index = 0,
-                                     X = packetline[2].ToFloat(),
-                                     Y = packetline[4].ToFloat(),
-                                     Z = packetline[6].ToFloat(),
-                                     O = 0f,
-                                     Time = timeSpan
-                                 };
+                                            {
+                                                Index = 0,
+                                                X = packetline[2].ToFloat(),
+                                                Y = packetline[4].ToFloat(),
+                                                Z = packetline[6].ToFloat(),
+                                                O = 0f,
+                                                Time = timeSpan
+                                            };
                                 waypointContainer.Waypoints.Add(lastPoint);
                             }
                             else if (waypointContainer != null && line.Contains("[0] Points: X:"))
@@ -589,6 +588,7 @@ namespace WaypointCreator
                                     index++;
                                     waypointContainer = new WaypointContainer
                                                         {
+                                                            WaypointSouceType = WaypointSouceType.UpdateObject,
                                                             Index = index
                                                         };
                                     list.Add(waypointContainer);
@@ -661,7 +661,6 @@ namespace WaypointCreator
                                     guidInCombat.Add(waypointContainer.GUID, waypointContainer.InCombat);
                                 }
                             }
-
                         }
                         while (line != string.Empty);
                     }
@@ -1222,7 +1221,6 @@ namespace WaypointCreator
 
         private void ViewerFormOnClosed(object sender, EventArgs eventArgs)
         {
-
             if (_viewerForm != null)
             {
                 _viewerForm.Closed -= ViewerFormOnClosed;
@@ -1231,7 +1229,6 @@ namespace WaypointCreator
             _viewerForm = new ViewerForm();
             _viewerForm.Show();
             _viewerForm.Closed += ViewerFormOnClosed;
-
         }
 
         private void WaypointContainerGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
