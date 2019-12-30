@@ -14,11 +14,15 @@ namespace WaypointCreator
     {
         #region Fields
 
-        public readonly Guid SpawnpointGuid = Guid.NewGuid();
+        //public readonly Guid SpawnpointGuid = Guid.NewGuid();
 
         private double _estimatedSpawnDistance;
 
         private uint _index;
+
+        private uint _guid;
+
+        private uint _entry;
 
         private bool _isAverage;
 
@@ -68,6 +72,32 @@ namespace WaypointCreator
             }
         }
 
+        public uint Guid
+        {
+            get
+            {
+                return _guid;
+            }
+            set
+            {
+                _guid = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public uint Entry
+        {
+            get
+            {
+                return _entry;
+            }
+            set
+            {
+                _entry = value;
+                OnPropertyChanged();
+            }
+        }
+
         public bool IsAverage
         {
             get
@@ -109,7 +139,7 @@ namespace WaypointCreator
             }
         }
 
-        public SortableBindingList<Waypoint> Waypoints { get; set; }
+        public SortableBindingList<Spawnpoint> Spawnpoints { get; set; }
 
         public float X
         {

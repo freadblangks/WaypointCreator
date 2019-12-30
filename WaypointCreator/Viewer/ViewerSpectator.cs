@@ -20,7 +20,7 @@ namespace WaypointCreator.Viewer
 
         #region Fields
 
-        private int _mapId;
+        private static int _mapId;
 
         #endregion
 
@@ -39,7 +39,7 @@ namespace WaypointCreator.Viewer
 
         #region Public Properties
 
-        public int MapId
+        public static int MapId
         {
             get
             {
@@ -53,7 +53,7 @@ namespace WaypointCreator.Viewer
             }
         }
 
-        public bool ResetPosition { get; set; }
+        public static bool ResetPosition { get; set; }
 
         #endregion
 

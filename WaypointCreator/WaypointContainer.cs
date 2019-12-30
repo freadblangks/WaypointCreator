@@ -85,6 +85,8 @@ namespace WaypointCreator
 
         public WaypointSouceType WaypointSouceType { get; set; }
 
+        public SpawnpointSouceType SpawnpointSouceType { get; set; }
+
         public int ZoneID { get; set; }
 
         #endregion

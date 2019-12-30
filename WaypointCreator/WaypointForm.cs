@@ -35,6 +35,8 @@ namespace WaypointCreator
 
         private SortableBindingList<SpawnpointContainer> _spawnpointContainers = new SortableBindingList<SpawnpointContainer>();
 
+        public ViewerSpectator ViewerSpectator { get; set; }
+
         #endregion
 
         #region Constructors and Destructors
@@ -1014,224 +1016,52 @@ namespace WaypointCreator
         }
 
         // Load spawn points from server
-        private void HandleServerSpawns(string fileName, List<SpawnpointContainer> list)
+        private void HandleServerSpawns()
         {
-            using (var sr = File.OpenText(fileName))
+            SpawnpointContainer.EnablePropertyChanged = false;
+            _spawnpointContainers.Clear();
+            _viewerForm.ClearSpawnPoints();
+
+            var list = new List<SpawnpointContainer>();
+            SpawnpointContainer spawnpointContainer = null;
+            Spawnpoint point = null;
+            int map = ViewerSpectator.MapId;
+            uint index = 0;
+
+            DataRow[] creatureDataRows = Creature.CreatureDataTable.Select("map = '" + map + "'");
+            foreach (DataRow row in creatureDataRows)
             {
-                if (InvokeRequired)
+                uint sGuid = (uint)Convert.ToUInt32(row["guid"].ToString());
+                uint sEntry = (uint)Convert.ToUInt32(row["id"].ToString());
+                float pX = (float)Convert.ToDouble(row["position_x"].ToString());
+                float pY = (float)Convert.ToDouble(row["position_y"].ToString());
+                float pZ = (float)Convert.ToDouble(row["position_z"].ToString());
+                float pO = (float)Convert.ToDouble(row["orientation"].ToString());
+
+                spawnpointContainer = new SpawnpointContainer
                 {
-                    Invoke
-                    (new Action
-                    (() =>
-                    {
-                        toolStripProgressBar1.ProgressBar.Maximum = (int)sr.BaseStream.Length;
-                        toolStripProgressBar1.ProgressBar.Minimum = 0;
-                    }));
-                }
+                    SpawnpointSouceType = SpawnpointSouceType.ServerNPC,
+                    Index = index + 1
+                };
+                list.Add(spawnpointContainer);
 
-                uint index = 0;
-                IDictionary<string, bool> guidInCombat = new Dictionary<string, bool>();
+                spawnpointContainer.Entry = sEntry;
+                spawnpointContainer.GUID = sGuid.ToString();
+                spawnpointContainer.Name = sEntry.ToString();
 
-                while (!sr.EndOfStream)
+                if (spawnpointContainer != null)
                 {
-                    if (InvokeRequired)
+                    point = new Spawnpoint
                     {
-                        Invoke(new Action(() => { toolStripProgressBar1.ProgressBar.Value = (int)sr.BaseStream.Position; }));
-                    }
-
-                    var line = sr.ReadLine();
-
-                    if (line.Contains("SMSG_ON_MONSTER_MOVE") || line.Contains("SMSG_MONSTER_MOVE"))
-                    {
-                        WaypointContainer waypointContainer = null;
-                        Waypoint lastPoint = null;
-
-                        var values = line.Split(' ');
-                        var time = values[9].Split('.');
-                        var timeSpan = time[0].ToTimeSpan();
-                        var count = 0u;
-
-                        do
-                        {
-                            line = sr.ReadLine();
-
-                            if (line.Contains("MoverGUID: Full:"))
-                            {
-                                if (line.Contains("Creature/0") || line.Contains("Vehicle/0"))
-                                {
-                                    index++;
-                                    waypointContainer = new WaypointContainer
-                                    {
-                                        WaypointSouceType = WaypointSouceType.MonsterMove,
-                                        Index = index
-                                    };
-                                    list.Add(waypointContainer);
-
-                                    var packetline = line.Split(' ');
-                                    waypointContainer.Entry = packetline[8].ToUint();
-                                    waypointContainer.GUID = packetline[2];
-
-                                    if (_creatureTemplateEntryAndNameList.ContainsKey(waypointContainer.Entry))
-                                    {
-                                        waypointContainer.Name = _creatureTemplateEntryAndNameList[waypointContainer.Entry];
-                                    }
-                                }
-                            }
-                            else if (waypointContainer != null && line.Contains("PointsCount:"))
-                            {
-                                count = line.Split(' ')[3].ToUint();
-                                lastPoint.Index = count;
-                            }
-                            else if (waypointContainer != null && line.StartsWith("Position: X:"))
-                            {
-                                var packetline = line.Split(' ');
-
-                                lastPoint = new Waypoint
-                                {
-                                    Index = 0,
-                                    X = packetline[2].ToFloat(),
-                                    Y = packetline[4].ToFloat(),
-                                    Z = packetline[6].ToFloat(),
-                                    O = 0f,
-                                    Time = timeSpan
-                                };
-                                waypointContainer.Waypoints.Add(lastPoint);
-                            }
-                            else if (waypointContainer != null && line.Contains("[0] Points: X:"))
-                            {
-                                var packetline = line.Split(' ');
-
-                                waypointContainer.Waypoints.Add
-                                (new Waypoint
-                                {
-                                    Index = (uint)waypointContainer.Waypoints.Count + 1,
-                                    X = packetline[5].ToFloat(),
-                                    Y = packetline[7].ToFloat(),
-                                    Z = packetline[9].ToFloat(),
-                                    O = 0f,
-                                    Time = timeSpan
-                                });
-                            }
-                            else if (waypointContainer != null && line.Contains("FaceDirection:"))
-                            {
-                                var packetline = line.Split(' ');
-                                waypointContainer.Waypoints.Last().O = packetline[3].ToFloat();
-                            }
-                            else if (waypointContainer != null && line.Contains("WayPoints: X:"))
-                            {
-                                var packetline = line.Split(' ');
-
-                                waypointContainer.Waypoints.Add
-                                (new Waypoint
-                                {
-                                    Index = (uint)waypointContainer.Waypoints.Count + 1,
-                                    X = packetline[5].ToFloat(),
-                                    Y = packetline[7].ToFloat(),
-                                    Z = packetline[9].ToFloat(),
-                                    O = 0f,
-                                    Time = timeSpan
-                                });
-                            }
-                        }
-
-                        while (line != string.Empty);
-                    }
-                    else if (Settings.Default.ObjectUpdate && (line.Contains("SMSG_UPDATE_OBJECT") || line.Contains("SMSG_COMPRESSED_UPDATE_OBJECT")))
-                    {
-                        var values = line.Split(' ');
-                        var time = values[9].Split('.');
-                        var timeSpan = time[0].ToTimeSpan();
-                        WaypointContainer waypointContainer = null;
-
-                        do
-                        {
-                            line = sr.ReadLine();
-
-                            if (line.Contains(" Object Guid: Full: "))
-                            {
-                                if (line.Contains("Vehicle/0") || line.Contains("Creature/0"))
-                                {
-                                    var packetline = line.Split(' ');
-
-                                    index++;
-                                    waypointContainer = new WaypointContainer
-                                    {
-                                        WaypointSouceType = WaypointSouceType.UpdateObject,
-                                        Index = index
-                                    };
-                                    list.Add(waypointContainer);
-
-                                    waypointContainer.Entry = packetline[10].ToUint();
-                                    waypointContainer.GUID = packetline[4];
-
-                                    if (_creatureTemplateEntryAndNameList.ContainsKey(waypointContainer.Entry))
-                                    {
-                                        waypointContainer.Name = _creatureTemplateEntryAndNameList[waypointContainer.Entry];
-                                    }
-                                }
-                            }
-                            /*
-                            if (lines[i].Contains("Transport/0"))
-                            {
-                                if (lines[i].Contains("Transport Position: X:"))
-                                {
-                                    string[] packetline = lines[i].Split(new char[] { ' ' });
-                                    sniff.x = packetline[4];
-                                    sniff.y = packetline[6];
-                                    sniff.z = packetline[8];
-                                    sniff.o = packetline[10];
-
-                                    DataRow dr = dt.NewRow();
-                                    dr[0] = sniff.entry;
-                                    dr[1] = sniff.guid;
-                                    dr[2] = sniff.x;
-                                    dr[3] = sniff.y;
-                                    dr[4] = sniff.z;
-                                    dr[5] = sniff.o;
-                                    dr[6] = sniff.time;
-                                    dt.Rows.Add(dr);
-                                }
-                            }*/
-
-                            else if (waypointContainer != null && line.Contains(" Points: X:"))
-                            {
-                                var packetline = line.Split(' ');
-
-                                waypointContainer.Waypoints.Add
-                                (new Waypoint
-                                {
-                                    Index = (uint)waypointContainer.Waypoints.Count + 1,
-                                    X = packetline[4].ToFloat(),
-                                    Y = packetline[6].ToFloat(),
-                                    Z = packetline[8].ToFloat(),
-                                    O = 0f,
-                                    Time = timeSpan
-                                });
-                            }
-                            else if (waypointContainer != null && waypointContainer.Waypoints.Any() && line.Contains(" Orientation:"))
-                            {
-                                waypointContainer.Waypoints.Last().O = line.Split(' ')[2].ToFloat();
-                            }
-                            else if (waypointContainer != null && line.Contains("UNIT_FIELD_FLAGS:"))
-                            {
-                                //[2](58) UNIT_FIELD_FLAGS: (32832) Unk6, OnlySwim
-                                //20	524288	IN_COMBAT	
-
-                                var flags = Regex.Replace(line, @"\[[0-9]+\] UNIT_FIELD_FLAGS: ([0-9]+).*", "$1").ToUint();
-                                waypointContainer.InCombat = (flags & 524288) > 0;
-
-                                if (guidInCombat.ContainsKey(waypointContainer.GUID))
-                                {
-                                    guidInCombat[waypointContainer.GUID] = waypointContainer.InCombat;
-                                }
-                                else
-                                {
-                                    guidInCombat.Add(waypointContainer.GUID, waypointContainer.InCombat);
-                                }
-                            }
-                        }
-                        while (line != string.Empty);
-                    }
+                        Index = (uint)spawnpointContainer.Spawnpoints.Count + 1,
+                        Guid = sGuid,
+                        Entry = sEntry,
+                        X = pX,
+                        Y = pY,
+                        Z = pZ,
+                        O = pO,
+                    };
+                    spawnpointContainer.Spawnpoints.Add(point);
                 }
             }
         }
@@ -1431,9 +1261,9 @@ namespace WaypointCreator
             //}
         }
 
-        private void UpdateSpawnpointsGridView()
+        /*private void UpdateSpawnpointsGridView()
         {
-            var selection = GetSelectedWaypointContainer();
+            var selection = GetSelectedSpawnpointContainer();
 
             if (selection == null)
                 return;
@@ -1442,7 +1272,7 @@ namespace WaypointCreator
             SpawnpointGridView.DataSource = selection.Spawnpoints;
             SpawnpointGridView.Invalidate();
             _suspectUpdates = false;
-        }
+        }*/
 
         private void UpdateWaypointsViewer()
         {
@@ -1565,5 +1395,13 @@ namespace WaypointCreator
         }
 
         #endregion
+
+        private void buttonLoadSpawns_Click(object sender, EventArgs e)
+        {
+            if (!Settings.Default.UsingDB)
+                MessageBox.Show("No connection to DB, can't load spawns.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+            else
+                HandleServerSpawns();
+        }
     }
 }

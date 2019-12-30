@@ -180,6 +180,13 @@ namespace WaypointCreator.Viewer
             Task.Factory.StartNew(UpdateAsync);
         }
 
+        public void ClearSpawnPoints()
+        {
+            Waypoints = new List<ViewerWaypoint>();
+
+            Task.Factory.StartNew(UpdateAsync);
+        }
+
         public void DrawLine(ViewerObjectBase source, ViewerObjectBase dest)
         {
             var myLine = new Line(_device);
@@ -343,27 +350,27 @@ namespace WaypointCreator.Viewer
             coloredArray[0].X = -1f;
             coloredArray[0].Y = -1f;
             coloredArray[0].Z = 0f;
-            coloredArray[0].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[0].Color = ViewerSpawnpoint.DefaultNPCColor;
             coloredArray[1].X = 1f;
             coloredArray[1].Y = -1f;
             coloredArray[1].Z = 0f;
-            coloredArray[1].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[1].Color = ViewerSpawnpoint.DefaultNPCColor;
             coloredArray[2].X = -1f;
             coloredArray[2].Y = 1f;
             coloredArray[2].Z = 0f;
-            coloredArray[2].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[2].Color = ViewerSpawnpoint.DefaultNPCColor;
             coloredArray[3].X = 1f;
             coloredArray[3].Y = 1f;
             coloredArray[3].Z = 0f;
-            coloredArray[3].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[3].Color = ViewerSpawnpoint.DefaultNPCColor;
             coloredArray[4].X = 1f;
             coloredArray[4].Y = -1f;
             coloredArray[4].Z = 0f;
-            coloredArray[4].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[4].Color = ViewerSpawnpoint.DefaultNPCColor;
             coloredArray[5].X = -1f;
             coloredArray[5].Y = 1f;
             coloredArray[5].Z = 0f;
-            coloredArray[5].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[5].Color = ViewerSpawnpoint.DefaultNPCColor;
             buffer.Unlock();
         }
 
@@ -609,9 +616,16 @@ namespace WaypointCreator.Viewer
 
                     DrawTextures();
 
+                    // Add spawn points to visual
                     foreach (var waypoint in Waypoints)
                     {
                         DrawObject(waypoint);
+                    }
+
+                    // Add spawn points to visual
+                    foreach (var spawnpoint in Spawnpoints)
+                    {
+                        DrawObject(spawnpoint);
                     }
 
                     DrawObject(ViewerSpectator);
@@ -662,6 +676,7 @@ namespace WaypointCreator.Viewer
 
                 ViewerSpectator = null;
                 Waypoints.Clear();
+                Spawnpoints.Clear();
 
                 VbSpectator.Created -= OnCreateVbSpectator;
                 VbSpectator.Dispose();
@@ -744,6 +759,7 @@ namespace WaypointCreator.Viewer
             ViewerSpectator = new ViewerSpectator(VbSpectator);
 
             Waypoints = new List<ViewerWaypoint>();
+            Spawnpoints = new List<ViewerSpawnpoint>();
 
             BuildAreas();
 

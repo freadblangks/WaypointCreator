@@ -12,7 +12,8 @@ namespace WaypointCreator.Viewer
     {
         #region Static Fields
 
-        public static int DefaultColor = System.Drawing.Color.DarkOrange.ToArgb();
+        public static int DefaultNPCColor = System.Drawing.Color.Orange.ToArgb();
+        public static int DefaultGameObjectColor = System.Drawing.Color.Red.ToArgb();
 
         #endregion
 
@@ -21,7 +22,7 @@ namespace WaypointCreator.Viewer
         public ViewerSpawnpoint(VertexBuffer vbBuffer)
             : base(vbBuffer)
         {
-            Color = DefaultColor;
+            Color = DefaultNPCColor;
             NumberOfVertexs = 2;
             Rotate = false;
         }
@@ -45,7 +46,7 @@ namespace WaypointCreator.Viewer
         public override string ToString()
         {
             //inverse x and y because viewer and textures works inverse
-            return $"{Index} - X: {Position.Y} Y: {Position.X}"; // $"{Index} - X: {Position.Y} Y: {Position.X}";
+            return $"{Index}"; // $"{Index} - X: {Position.Y} Y: {Position.X}";
         }
 
         #endregion

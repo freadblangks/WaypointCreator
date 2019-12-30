@@ -15,8 +15,10 @@ namespace WaypointCreator
     public enum SpawnpointSouceType : uint
     {
         None = 0,
-        Server = 1,
-        Sniff = 2
+        ServerNPC = 1,
+        ServerGObject = 2,
+        SniffNPC = 3,
+        SniffGObject = 4
     }
 
     public class SpawnpointContainer : INotifyPropertyChanged

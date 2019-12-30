@@ -93,6 +93,7 @@
             this.ToolStripComboBoxFilterType = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripEdit = new System.Windows.Forms.ToolStrip();
+            this.buttonLoadSpawns = new System.Windows.Forms.Button();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -649,11 +650,22 @@
             this.toolStripEdit.TabIndex = 24;
             this.toolStripEdit.Text = "toolStrip1";
             // 
+            // buttonLoadSpawns
+            // 
+            this.buttonLoadSpawns.Location = new System.Drawing.Point(747, 2);
+            this.buttonLoadSpawns.Name = "buttonLoadSpawns";
+            this.buttonLoadSpawns.Size = new System.Drawing.Size(99, 23);
+            this.buttonLoadSpawns.TabIndex = 29;
+            this.buttonLoadSpawns.Text = "Load Spawns";
+            this.buttonLoadSpawns.UseVisualStyleBackColor = true;
+            this.buttonLoadSpawns.Click += new System.EventHandler(this.buttonLoadSpawns_Click);
+            // 
             // WaypointForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1446, 644);
+            this.Controls.Add(this.buttonLoadSpawns);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStripEdit);
@@ -737,5 +749,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn WaitTImeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button buttonLoadSpawns;
     }
 }
