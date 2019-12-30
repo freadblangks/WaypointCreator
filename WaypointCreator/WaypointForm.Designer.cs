@@ -114,9 +114,9 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel,
             this.toolStripProgressBar1});
-            this.statusStrip.Location = new System.Drawing.Point(0, 690);
+            this.statusStrip.Location = new System.Drawing.Point(0, 622);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1287, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1446, 22);
             this.statusStrip.TabIndex = 27;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -144,8 +144,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.WaypointGridView);
-            this.splitContainer1.Size = new System.Drawing.Size(1287, 665);
-            this.splitContainer1.SplitterDistance = 513;
+            this.splitContainer1.Size = new System.Drawing.Size(1446, 597);
+            this.splitContainer1.SplitterDistance = 740;
             this.splitContainer1.TabIndex = 28;
             // 
             // WaypointContainerGridView
@@ -188,7 +188,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.WaypointContainerGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.WaypointContainerGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.WaypointContainerGridView.Size = new System.Drawing.Size(513, 665);
+            this.WaypointContainerGridView.Size = new System.Drawing.Size(740, 597);
             this.WaypointContainerGridView.TabIndex = 26;
             this.WaypointContainerGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.WaypointContainerGridView_CellDoubleClick);
             this.WaypointContainerGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
@@ -272,7 +272,7 @@
             this.exportToolStripMenuItem,
             this.copyToClipboardToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(175, 142);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 142);
             // 
             // selectToolStripMenuItem
             // 
@@ -280,7 +280,7 @@
             this.selectAllToolStripMenuItem1,
             this.selectWithSameGuidToolStripMenuItem});
             this.selectToolStripMenuItem.Name = "selectToolStripMenuItem";
-            this.selectToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.selectToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.selectToolStripMenuItem.Text = "Select";
             // 
             // selectAllToolStripMenuItem1
@@ -300,14 +300,14 @@
             // deselectAllToolStripMenuItem
             // 
             this.deselectAllToolStripMenuItem.Name = "deselectAllToolStripMenuItem";
-            this.deselectAllToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.deselectAllToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.deselectAllToolStripMenuItem.Text = "Deselect All";
             this.deselectAllToolStripMenuItem.Click += new System.EventHandler(this.deselectAllToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(171, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(169, 6);
             // 
             // mergeToolStripMenuItem
             // 
@@ -315,7 +315,7 @@
             this.mergeAllToolStripMenuItem,
             this.mergeUniqueToolStripMenuItem});
             this.mergeToolStripMenuItem.Name = "mergeToolStripMenuItem";
-            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.mergeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.mergeToolStripMenuItem.Text = "Merge";
             // 
             // mergeAllToolStripMenuItem
@@ -339,7 +339,7 @@
             this.generateAverageWaitTimeToolStripMenuItem,
             this.generateExactWaitTimeToolStripMenuItem});
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
-            this.generateToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.generateToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.generateToolStripMenuItem.Text = "Generat";
             // 
             // generateAverageWaypointToolStripMenuItem
@@ -369,7 +369,7 @@
             this.exportSpawnWithCreatureMovementToolStripMenuItem,
             this.exportSpawnOnlyToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToUDBSQLToolStripMenuItem_Click);
             // 
@@ -393,7 +393,7 @@
             this.copySpawnWithCreatureMovementToolStripMenuItem,
             this.copySpawnOnlyToolStripMenuItem});
             this.copyToClipboardToolStripMenuItem.Name = "copyToClipboardToolStripMenuItem";
-            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.copyToClipboardToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.copyToClipboardToolStripMenuItem.Text = "Copy To Clipboard";
             // 
             // copySpawnWithCreatureMovementToolStripMenuItem
@@ -452,7 +452,7 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.WaypointGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.WaypointGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.WaypointGridView.Size = new System.Drawing.Size(770, 665);
+            this.WaypointGridView.Size = new System.Drawing.Size(702, 597);
             this.WaypointGridView.TabIndex = 1;
             this.WaypointGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.GridView_CellMouseDown);
             this.WaypointGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.WaypointGridView_CellValueChanged);
@@ -645,7 +645,7 @@
             this.toolStripSeparator1});
             this.toolStripEdit.Location = new System.Drawing.Point(0, 0);
             this.toolStripEdit.Name = "toolStripEdit";
-            this.toolStripEdit.Size = new System.Drawing.Size(1287, 25);
+            this.toolStripEdit.Size = new System.Drawing.Size(1446, 25);
             this.toolStripEdit.TabIndex = 24;
             this.toolStripEdit.Text = "toolStrip1";
             // 
@@ -653,7 +653,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1287, 712);
+            this.ClientSize = new System.Drawing.Size(1446, 644);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStripEdit);

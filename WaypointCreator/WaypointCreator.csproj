@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WaypointCreator</RootNamespace>
     <AssemblyName>WaypointCreator</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <StartupObject>WaypointCreator.Program</StartupObject>
     <FileUpgradeFlags>
@@ -34,6 +34,8 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -81,10 +83,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.DirectX, Version=1.0.2902.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\Microsoft.DirectX.dll</HintPath>
@@ -97,31 +96,34 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Libs\Microsoft.DirectX.Direct3DX.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.9.8\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.10.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.10.9\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=3.0.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.3.0.1\lib\net20\OpenTK.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="OpenTK, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenTK.3.0.0-pre\lib\net20\OpenTK.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="OpenTK.GLControl, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenTK.GLControl.3.0.0-pre\lib\net20\OpenTK.GLControl.dll</HintPath>
+    <Reference Include="OpenTK.GLControl, Version=3.0.1.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.GLControl.3.0.1\lib\net20\OpenTK.GLControl.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -136,40 +138,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityFramework\DBHandler.cs" />
-    <Compile Include="EntityFramework\CoreDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoreDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\CoreDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\CoreDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CoreDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\creature.cs">
-      <DependentUpon>CoreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\creature_linking.cs">
-      <DependentUpon>CoreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\creature_linking_template.cs">
-      <DependentUpon>CoreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\creature_movement.cs">
-      <DependentUpon>CoreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\creature_movement_template.cs">
-      <DependentUpon>CoreDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityFramework\creature_template.cs">
-      <DependentUpon>CoreDB.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Creature.cs" />
+    <Compile Include="CreatureTemplate.cs" />
+    <Compile Include="DBHandler.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="ParserBase.cs" />
@@ -215,9 +186,12 @@
     </Compile>
     <Compile Include="Viewer\MapArea.cs" />
     <Compile Include="Viewer\MapTexture.cs" />
+    <Compile Include="Viewer\ViewerSpawnpoint.cs" />
     <Compile Include="Viewer\ViewerSpectator.cs" />
     <Compile Include="Viewer\ViewerWaypoint.cs" />
+    <Compile Include="Spawnpoint.cs" />
     <Compile Include="Waypoint.cs" />
+    <Compile Include="SpawnpointContainery.cs" />
     <Compile Include="WaypointContainer.cs" />
     <Compile Include="WaypointForm.cs">
       <SubType>Form</SubType>
@@ -242,13 +216,6 @@
       <DependentUpon>WaypointForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <EntityDeploy Include="EntityFramework\CoreDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CoreDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EntityFramework\CoreDB.edmx.diagram">
-      <DependentUpon>CoreDB.edmx</DependentUpon>
-    </None>
     <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -262,16 +229,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntityFramework\CoreDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CoreDB.Context.cs</LastGenOutput>
-      <DependentUpon>CoreDB.edmx</DependentUpon>
-    </Content>
-    <Content Include="EntityFramework\CoreDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CoreDB.edmx</DependentUpon>
-      <LastGenOutput>CoreDB.cs</LastGenOutput>
-    </Content>
     <Content Include="Fire Elemental.ico" />
     <EmbeddedResource Include="Viewer\DBC\AreaTable.xml" />
     <EmbeddedResource Include="Viewer\DBC\GameObjectDisplayInfo.xml" />

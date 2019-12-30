@@ -80,6 +80,14 @@ namespace WaypointCreator.Viewer
                     Position = new Vector3(Position.X - speed, Position.Y, Position.X);
                     Orientation = (float)Math.PI * 2f - (float)Math.PI / 2f;
                     break;
+                case Keys.PageUp:
+                    Position = new Vector3(Position.X, Position.Y, Position.Z + speed);
+                    Orientation = (float)Math.PI / 2f;
+                    break;
+                case Keys.PageDown:
+                    Position = new Vector3(Position.X, Position.Y, Position.Z - speed);
+                    Orientation = (float)Math.PI * 2f - (float)Math.PI / 2f;
+                    break;
             }
 
             update?.Invoke();

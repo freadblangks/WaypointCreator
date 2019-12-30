@@ -112,7 +112,10 @@ namespace WaypointCreator
                 }
             }
 
-            var average = waittimes.Sum() / waittimes.Count;
+            var average = 0;
+
+            if (waittimes.Count > 0)
+                average = waittimes.Sum() / waittimes.Count;
 
             for (var i = 0; i < array.Length; i++)
             {

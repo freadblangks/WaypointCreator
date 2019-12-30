@@ -41,12 +41,12 @@
             this.selectMapToolStripMenuItem,
             this.linkPathsToolStripMenuItem});
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(153, 70);
+            this.mnuMain.Size = new System.Drawing.Size(133, 48);
             // 
             // selectMapToolStripMenuItem
             // 
             this.selectMapToolStripMenuItem.Name = "selectMapToolStripMenuItem";
-            this.selectMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.selectMapToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.selectMapToolStripMenuItem.Text = "Select Map";
             this.selectMapToolStripMenuItem.DropDownOpening += new System.EventHandler(this.selectMapToolStripMenuItem_DropDownOpening);
             // 
@@ -56,7 +56,7 @@
             this.linkPathsToolStripMenuItem.CheckOnClick = true;
             this.linkPathsToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.linkPathsToolStripMenuItem.Name = "linkPathsToolStripMenuItem";
-            this.linkPathsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.linkPathsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.linkPathsToolStripMenuItem.Text = "Link Paths";
             this.linkPathsToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.linkPathsToolStripMenuItem_CheckStateChanged);
             this.linkPathsToolStripMenuItem.Click += new System.EventHandler(this.linkPathsToolStripMenuItem_Click);
@@ -66,7 +66,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(640, 455);
+            this.ClientSize = new System.Drawing.Size(1054, 660);
             this.ContextMenuStrip = this.mnuMain;
             this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(100, 100);

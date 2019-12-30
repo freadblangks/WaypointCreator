@@ -72,11 +72,15 @@ namespace WaypointCreator.Viewer
 
         public VertexBuffer VbWaypoint { get; set; }
 
+        public VertexBuffer VbSpawnpoint { get; set; }
+
         public ViewerSpectator ViewerSpectator { get; set; }
 
         public List<ViewerWaypoint> Waypoints { get; set; }
 
-        #endregion
+        public List<ViewerSpawnpoint> Spawnpoints { get; set; }
+
+        #endregion 
 
         #region Public Methods and Operators
 
@@ -121,6 +125,13 @@ namespace WaypointCreator.Viewer
         public void AddWayPoints(List<ViewerWaypoint> waypoints)
         {
             Waypoints.AddRange(waypoints);
+
+            UpdateViewer();
+        }
+
+        public void AddSpawnPoints(List<ViewerSpawnpoint> spawnpoints)
+        {
+            Spawnpoints.AddRange(spawnpoints);
 
             UpdateViewer();
         }
@@ -250,6 +261,16 @@ namespace WaypointCreator.Viewer
                 VbWaypoint.Created += OnCreateVbWaypoint;
                 OnCreateVbWaypoint(VbWaypoint, null);
 
+                VbSpawnpoint = new VertexBuffer
+                (typeof(CustomVertex.PositionColored),
+                    6,
+                    _device,
+                    Usage.None,
+                    VertexFormats.Diffuse | VertexFormats.Position,
+                    Pool.Default);
+                VbSpawnpoint.Created += OnCreateVbSpawnpoint;
+                OnCreateVbSpawnpoint(VbSpawnpoint, null);
+
                 VbMapTexture = new VertexBuffer
                 (typeof(CustomVertex.PositionNormalTextured),
                     6,
@@ -311,6 +332,38 @@ namespace WaypointCreator.Viewer
             coloredArray[5].Y = 1f;
             coloredArray[5].Z = 0f;
             coloredArray[5].Color = ViewerWaypoint.DefaultColor;
+            buffer.Unlock();
+        }
+
+        public void OnCreateVbSpawnpoint(object sender, EventArgs e)
+        {
+            var buffer = sender as VertexBuffer;
+
+            var coloredArray = (CustomVertex.PositionColored[])buffer.Lock(0, LockFlags.None);
+            coloredArray[0].X = -1f;
+            coloredArray[0].Y = -1f;
+            coloredArray[0].Z = 0f;
+            coloredArray[0].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[1].X = 1f;
+            coloredArray[1].Y = -1f;
+            coloredArray[1].Z = 0f;
+            coloredArray[1].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[2].X = -1f;
+            coloredArray[2].Y = 1f;
+            coloredArray[2].Z = 0f;
+            coloredArray[2].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[3].X = 1f;
+            coloredArray[3].Y = 1f;
+            coloredArray[3].Z = 0f;
+            coloredArray[3].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[4].X = 1f;
+            coloredArray[4].Y = -1f;
+            coloredArray[4].Z = 0f;
+            coloredArray[4].Color = ViewerSpawnpoint.DefaultColor;
+            coloredArray[5].X = -1f;
+            coloredArray[5].Y = 1f;
+            coloredArray[5].Z = 0f;
+            coloredArray[5].Color = ViewerSpawnpoint.DefaultColor;
             buffer.Unlock();
         }
 
@@ -616,6 +669,9 @@ namespace WaypointCreator.Viewer
                 VbWaypoint.Created -= OnCreateVbWaypoint;
                 VbWaypoint.Dispose();
                 VbWaypoint = null;
+                VbSpawnpoint.Created -= OnCreateVbSpawnpoint;
+                VbSpawnpoint.Dispose();
+                VbSpawnpoint = null;
                 VbMapTexture.Created -= OnCreateVbMapTexture;
                 VbMapTexture.Dispose();
                 VbMapTexture = null;
@@ -637,6 +693,8 @@ namespace WaypointCreator.Viewer
                     case Keys.Down:
                     case Keys.Left:
                     case Keys.Right:
+                    case Keys.PageUp:
+                    case Keys.PageDown:
                         ViewerSpectator.Move(e.KeyCode, _speed, UpdateAsync);
                         break;
                 }
@@ -669,6 +727,8 @@ namespace WaypointCreator.Viewer
                     case Keys.Down:
                     case Keys.Left:
                     case Keys.Right:
+                    case Keys.PageUp:
+                    case Keys.PageDown:
                         ViewerSpectator.Move(e.KeyCode, _speed, UpdateAsync);
                         break;
                 }
