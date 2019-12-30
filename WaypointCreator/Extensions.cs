@@ -4,6 +4,8 @@ using System;
 
 #endregion
 
+using System.Globalization;
+
 namespace WaypointCreator
 {
     public static class Extensions
@@ -20,7 +22,7 @@ namespace WaypointCreator
         {
             float result;
 
-            if (float.TryParse(val, out result))
+            if (float.TryParse(val, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
             {
                 return result;
             }
@@ -32,7 +34,7 @@ namespace WaypointCreator
         {
             TimeSpan result;
 
-            if (TimeSpan.TryParse(val, out result))
+            if (TimeSpan.TryParse(val, CultureInfo.InvariantCulture, out result))
             {
                 return result;
             }
@@ -44,7 +46,7 @@ namespace WaypointCreator
         {
             uint result;
 
-            if (uint.TryParse(val, out result))
+            if (uint.TryParse(val, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
             {
                 return result;
             }
@@ -56,7 +58,7 @@ namespace WaypointCreator
         {
             long result;
 
-            if (long.TryParse(val, out result))
+            if (long.TryParse(val, NumberStyles.Any, CultureInfo.InvariantCulture, out result))
             {
                 return result;
             }
