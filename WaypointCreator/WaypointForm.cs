@@ -1031,6 +1031,7 @@ namespace WaypointCreator
             DataRow[] creatureDataRows = Creature.CreatureDataTable.Select("map = '" + map + "'");
             foreach (DataRow row in creatureDataRows)
             {
+                index += 1;
                 uint sGuid = (uint)Convert.ToUInt32(row["guid"].ToString());
                 uint sEntry = (uint)Convert.ToUInt32(row["id"].ToString());
                 float pX = (float)Convert.ToDouble(row["position_x"].ToString());
@@ -1041,7 +1042,7 @@ namespace WaypointCreator
                 spawnpointContainer = new SpawnpointContainer
                 {
                     SpawnpointSouceType = SpawnpointSouceType.ServerNPC,
-                    Index = index + 1
+                    Index = index
                 };
                 list.Add(spawnpointContainer);
 
@@ -1053,7 +1054,7 @@ namespace WaypointCreator
                 {
                     point = new Spawnpoint
                     {
-                        Index = (uint)spawnpointContainer.Spawnpoints.Count + 1,
+                        Index = index,
                         Guid = sGuid,
                         Entry = sEntry,
                         X = pX,
@@ -1296,9 +1297,9 @@ namespace WaypointCreator
 
         private void UpdateSpawnpointsViewer()
         {
-            if (_suspectUpdates)
+            /*if (_suspectUpdates)
                 return;
-            _viewerForm?.Spawnpoints?.Clear();
+            _viewerForm?.Spawnpoints?.Clear();*/
 
             _viewerForm?.AddSpawnPoints
             (_spawnpointContainers.Where(x => x.Selected).SelectMany
@@ -1402,6 +1403,8 @@ namespace WaypointCreator
                 MessageBox.Show("No connection to DB, can't load spawns.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             else
                 HandleServerSpawns();
+
+            UpdateSpawnpointsViewer();
         }
     }
 }

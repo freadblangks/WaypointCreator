@@ -182,7 +182,7 @@ namespace WaypointCreator.Viewer
 
         public void ClearSpawnPoints()
         {
-            Waypoints = new List<ViewerWaypoint>();
+            Spawnpoints = new List<ViewerSpawnpoint>();
 
             Task.Factory.StartNew(UpdateAsync);
         }
